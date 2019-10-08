@@ -1,6 +1,6 @@
 html {font-family: sans-serif;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
 body {margin: 0;}
-article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {display: block;}
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary, .sticky {display: block;}
 audio, canvas, progress, video {display: inline-block;vertical-align: baseline;}
 audio:not([controls]) {display: none;height: 0;}
 [hidden], template {display: none;}
@@ -87,7 +87,7 @@ a:hover, a:active {outline: 0;}
 .clear:before, .clear:after, .entry-content:before, .entry-content:after, .navigation:before, .navigation:after {content: "";display: table;table-layout: fixed;}
 .clear:after, .entry-content:after, .wrapper:after, .navigation:after {clear: both;}
 body {max-width: 640px;margin-left: auto;margin-right: auto;}
-.site-content {margin-bottom: 25px;}
+.site-content {margin-bottom: 50px;}
 .site-header {padding: 25px 0 50px 0;}
 .site-title {margin: 0;line-height: 1;font-size: 14px;font-weight: 500;}
 .site-title a {text-decoration: none;color: #2d2e33;}
@@ -104,7 +104,8 @@ body {max-width: 640px;margin-left: auto;margin-right: auto;}
 .entry-title a {text-decoration: none;color: #060606;}
 .entry-title a:hover {color: #3767b3;}
 .more-link {text-decoration: none;}
-.sticky {display: block;}
+.blog article {border-bottom: 1px solid #f3f3f3;padding-bottom: 34px;margin-bottom: 50px;}
+.blog article:last-child {border-bottom: 0;padding-bottom: 0;}
 .comments-area {padding-top: 25px;border-top: 1px solid #eaeaea;margin-top: 25px;}
 .comments-area .comment-body {border-bottom: 1px solid #e4e4e4;padding-bottom: 20px;margin-bottom: 20px;}
 .comments-area ul.children {margin: 0 0 0 25px;padding: 0;list-style: none;}
