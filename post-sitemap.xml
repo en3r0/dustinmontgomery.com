@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://dustinmontgomery.com/blog-2/</loc>
-		<lastmod>2022-06-24T15:06:05+00:00</lastmod>
+		<lastmod>2022-07-06T14:13:18+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://dustinmontgomery.com/manufacturing-case-study/</loc>
@@ -32,6 +32,16 @@
 		</image:image>
 		<image:image>
 			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2022/06/fortune-500-seo-traffic-case-study.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://dustinmontgomery.com/internal-linking-case-study/</loc>
+		<lastmod>2022-07-06T14:13:18+00:00</lastmod>
+		<image:image>
+			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2022/07/outdoor.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2022/07/internal-linking-chart.png</image:loc>
 		</image:image>
 	</url>
 </urlset>
