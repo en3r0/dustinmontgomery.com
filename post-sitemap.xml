@@ -2,17 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://dustinmontgomery.com/?page_id=1198</loc>
-		<lastmod>2023-07-11T17:15:51+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://dustinmontgomery.com/manufacturing-case-study/</loc>
-		<lastmod>2022-06-24T15:05:01+00:00</lastmod>
-		<image:image>
-			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2022/06/semi-truck.jpg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2022/06/manufacturer-traffic.png</image:loc>
-		</image:image>
+		<lastmod>2023-07-18T17:21:48+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://dustinmontgomery.com/startup-case-study/</loc>
@@ -45,13 +35,6 @@
 		</image:image>
 	</url>
 	<url>
-		<loc>https://dustinmontgomery.com/direct-to-consumer-seo/</loc>
-		<lastmod>2023-06-21T11:34:38+00:00</lastmod>
-		<image:image>
-			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2023/06/audience.jpg</image:loc>
-		</image:image>
-	</url>
-	<url>
 		<loc>https://dustinmontgomery.com/pros-and-cons-of-selling-direct-to-customers/</loc>
 		<lastmod>2023-06-27T17:14:43+00:00</lastmod>
 		<image:image>
@@ -59,10 +42,34 @@
 		</image:image>
 	</url>
 	<url>
+		<loc>https://dustinmontgomery.com/how-manufacturers-can-successfully-sell-direct-to-consumers/</loc>
+		<lastmod>2023-07-18T14:07:37+00:00</lastmod>
+		<image:image>
+			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2023/07/manufacturer-d2c.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
 		<loc>https://dustinmontgomery.com/what-is-dtc-ecommerce/</loc>
-		<lastmod>2023-07-11T17:15:51+00:00</lastmod>
+		<lastmod>2023-07-18T17:20:31+00:00</lastmod>
 		<image:image>
 			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2023/07/DTC-ecommerce.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://dustinmontgomery.com/manufacturing-case-study/</loc>
+		<lastmod>2023-07-18T17:21:30+00:00</lastmod>
+		<image:image>
+			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2022/06/semi-truck.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2022/06/manufacturer-traffic.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://dustinmontgomery.com/direct-to-consumer-seo/</loc>
+		<lastmod>2023-07-18T17:21:48+00:00</lastmod>
+		<image:image>
+			<image:loc>https://dustinmontgomery.com/wp-content/uploads/2023/06/audience.jpg</image:loc>
 		</image:image>
 	</url>
 </urlset>
