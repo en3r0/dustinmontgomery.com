@@ -30,6 +30,10 @@
 	.section p {
 	    padding-left: 2em;
 	}
+	.section img {
+	    max-width: 100%;
+	    height: auto; /* Maintains aspect ratio */
+	}
     </style>
 	
 <!-- Google tag (gtag.js) -->
@@ -54,6 +58,7 @@
 
         <div class="section">
             <h2>What happened?</h2>
+            <p><img src="images/what-happened.jpg" alt="What Happened?"></p>
             <p>I have had this idea brewing in some form for around 20 years, so I decided I needed to fully explore it. With AI where it is, it was much easier for me to take a stab at it and build a proof of concept.</p>
 
             <p>The basic idea was akin to a video game style random world generator, but for pieces of files. This would allow you to place a “seed” into the generator / algorithm and get back the piece of data you put in.</p>
@@ -65,6 +70,7 @@
 
         <div class="section">
             <h2>What did I try?</h2>
+            <p><img src="images/what-did-i-try.jpg" alt="What did I try?"></p>
             <p>A lot of me thinking this was possible was inspired by the <a href="https://libraryofbabel.info/" target="_blank">Library of Babel</a>. I started by trying to convert some of the code they have published to work with any piece of data. The code uses a “<a href="https://github.com/librarianofbabel/libraryofbabel.info-algo" target="_blank">combination of a linear congruential generator and a mersenne twister (sort of)</a>”. I quickly found that it is the constraints of what they search for that make it a more feasible task. However I did achieve a working version with data, but the bookmarks (the files that contained the seed to reproduce the file) were double the size of the files being tested. Not so great for a bookmark.</p>
 
             <p>I also looked into AES-CTR encryption, Feistel Networks, Hash Function + Counters, Merkel Trees, and more, but my research quickly lead me to keeping the algorithm as simple as possible for troubleshooting. Also not all of those are reversible, which is needed.</p>
@@ -76,6 +82,7 @@
 
         <div class="section">
             <h2>What did I learn?</h2>
+            <p><img src="images/what-did-i-learn.jpg" alt="What did I learn?"></p>
             <p><strong>How to work with LLMs to think, as well as produce outcomes.</strong></p>
             <p>Never trust the LLM when it tells you something is impossible or infeasible. This is much the same approach I suggest to take in real life when a human tells you that. At first I took the LLM too seriously, during the ideation phase. After awhile I saw I was able to apply basic logic to guide the AI to other solutions that allowed me to continue to move forward.</p>
 
