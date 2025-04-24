@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added viewport meta tag -->
     <title>My Billion Dollar Idea (Seedless Torrents) is dead - A Retrospective by Dustin Montgomery</title>
     <style>
         body {
@@ -21,19 +22,41 @@
         }
         .section {
             margin-top: 1em;
-	    font-size: 1.2em;
+            font-size: 1.2em;
         }
         .section h2 {
             font-size: inherit;
             margin-bottom: 0.5em;
         }
-	.section p {
-	    padding-left: 2em;
-	}
-	.section img {
-	    max-width: 100%;
-	    height: auto; /* Maintains aspect ratio */
-	}
+        .section p {
+            padding-left: 2em;
+        }
+        .section img {
+            max-width: 100%;
+            height: auto; /* Maintains aspect ratio */
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 16px;
+                font-size: 1.1em;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .section {
+                font-size: 1.3em;
+            }
+            .section p {
+                padding-left: 1em;
+            }
+            .authors {
+                margin-right: 1em;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+        }
     </style>
 	
 <!-- Google tag (gtag.js) -->
