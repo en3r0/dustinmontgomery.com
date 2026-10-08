@@ -5,16 +5,20 @@ Writing
 
 ## writing
 
-- I made a thing that haunts me. [1]
+- How This Site Works [1]
+  The ASCII art shadow hack, pages you can curl, and running it all for
+  free.
+
+- I made a thing that haunts me. [2]
   Death comes for us all eventually.
 
-- Seedless Torrents [2]
+- Seedless Torrents [3]
   An idea I had for about 20 years: generate the file pieces from a seed
   so a torrent needs no peers. Prototyped with AI over several months,
   tried AES-CTR, Feistel networks, Merkle trees and Gray code. It failed
   past 8 bits. The seed was always larger than the data.
 
-- Note Taking Applications [3]
+- Note Taking Applications [4]
   Tiago Forte's Building a Second Brain, and what I actually used:
   Joplin, Nextcloud Notes, MindForger, and Emacs (Doom) with the
   Remembrance Agent.
@@ -23,11 +27,12 @@ Writing
 
 Get on the newsletter for infrequent updates.
 
-Subscribe → [4]
+Subscribe → [5]
 
 Links
 -----
-[1] https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
-[2] https://dustinmontgomery.com/blog/seedless-torrents/
-[3] https://dustinmontgomery.com/blog/note-taking-applications/
-[4] https://dustin-montgomery.beehiiv.com/subscribe
+[1] https://dustinmontgomery.com/blog/how-this-site-works/
+[2] https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
+[3] https://dustinmontgomery.com/blog/seedless-torrents/
+[4] https://dustinmontgomery.com/blog/note-taking-applications/
+[5] https://dustin-montgomery.beehiiv.com/subscribe

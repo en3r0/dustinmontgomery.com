@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How This Site Works · Dustin Montgomery</title>
+<meta name="description" content="The ASCII art shadow hack, pages you can curl, and running it all for free.">
+<link rel="canonical" href="https://dustinmontgomery.com/blog/how-this-site-works/">
+<meta property="og:url" content="https://dustinmontgomery.com/blog/how-this-site-works/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dustin Montgomery">
+<meta property="og:title" content="How This Site Works · Dustin Montgomery">
+<meta property="og:description" content="The ASCII art shadow hack, pages you can curl, and running it all for free.">
+<meta property="og:image" content="https://dustinmontgomery.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dustin Montgomery, in green block-letter ASCII art">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@DustinMontgomer">
+<meta name="twitter:creator" content="@DustinMontgomer">
+<meta property="article:published_time" content="2026-10-08">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Dustin Montgomery" href="/feed.xml">
+<link rel="alternate" type="text/plain" href="/blog/how-this-site-works/index.txt">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0e0a">
+<link rel="prefetch" href="/">
+<link rel="prefetch" href="/blog/">
+<link rel="prefetch" href="/seo-consulting/">
+<style>*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#0a0e0a;color:#e7f1e2;overflow-x:hidden;
+  font:13.5px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:20px 16px 56px;
+  position:relative;z-index:1}
+.desk{display:grid;gap:13px;
+  grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr))}
+.desk>.win{margin:0}
+.desk>.win.hero,.desk>.win.wide{grid-column:1/-1}
+@media (max-width:864px){.wrap{max-width:660px}}
+.grid{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(#0f170f 1px,transparent 1px);
+  background-size:14px 14px}
+@media (max-width:700px){.grid{display:none}}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap}
+a{color:#a5eba0;text-decoration:none}
+a:hover{text-decoration:underline}
+.bd a{text-decoration:underline;text-decoration-color:#2f4a2b;
+  text-underline-offset:3px}
+.bd a:hover{text-decoration-color:currentColor}
+nav{display:flex;flex-wrap:wrap;gap:3px 13px;align-items:baseline;
+  border-bottom:1px solid #1d291b;padding:9px 0;margin-bottom:20px;font-size:12.5px}
+nav a,nav .site{color:#7e8f78}
+nav a.on{color:#a5eba0}
+nav a:hover{color:#a5eba0}
+nav .sp{flex:1;min-width:8px}
+.win{background:#101710;border:1px solid #1d291b;margin:0 0 13px;
+  container-type:inline-size}
+.win>.bar{display:flex;align-items:center;gap:8px;background:#0c130c;
+  border-bottom:1px solid #1d291b;padding:6px 10px}
+.win{scroll-margin-top:16px}
+.win:target{border-color:#4d6a47}
+.win:target>.bar h2,.win:target>.bar b{color:#a5eba0}
+@media (prefers-reduced-motion:no-preference){
+  .win:target{animation:hl 1.6s ease-out}
+  .win:target>.bar{animation:hlbar 1.6s ease-out}
+}
+@keyframes hl{0%{border-color:#a5eba0;box-shadow:0 0 0 3px #a5eba055,0 0 18px #6ec95f66}
+  100%{border-color:#4d6a47;box-shadow:0 0 0 0 transparent}}
+@keyframes hlbar{0%{background:#1f3a1c}100%{background:#0c130c}}
+.win>.bar i{width:7px;height:7px;border-radius:1px;background:#2b3a28;display:block;flex:none}
+.win>.bar b,.win>.bar h2{margin:0 0 0 auto;color:#7e8f78;font-size:11.5px;letter-spacing:.06em;
+  font-weight:400;line-height:inherit}
+.win>.bd{padding:13px 14px 15px}
+.win.hero>.bd{padding:16px 14px 18px;text-align:center}
+h1,h2,h3,h4{font-size:13.5px;font-weight:400;margin:0 0 9px}
+h1{color:#a5eba0}
+p{margin:0 0 9px}
+p:last-child,ul:last-child{margin-bottom:0}
+p.more{margin-top:9px}
+ul{margin:0;padding:0;list-style:none}
+li{padding:6px 0;border-bottom:1px solid #1d291b}
+li:last-child{border-bottom:0}
+li .m{color:#7e8f78;font-size:11.5px;display:block;margin-top:2px}
+.hero .bio{color:#e7f1e2;max-width:62ch;margin:14px auto 0}
+.tag{color:#7e8f78;font-size:11.5px;letter-spacing:.06em}
+.more+.tag{margin-top:18px}
+.foot{border-top:1px solid #1d291b;margin-top:26px;padding-top:12px;
+  color:#7e8f78;font-size:11.5px}
+.cols{display:grid;grid-template-columns:1fr;gap:0 18px}
+.cols li{padding:6px 0;border-bottom:1px solid #1d291b}
+.cols li:last-child{border-bottom:1px solid #1d291b}
+.cols li a{display:flex;justify-content:space-between;gap:10px}
+.cols li a .m{display:inline;margin:0;font-size:11.5px;color:#7e8f78}
+@container (min-width:490px){.cols{grid-template-columns:1fr 1fr}}
+.prose{max-width:72ch}
+.desk>.win.doc{justify-self:center;width:100%;max-width:calc(72ch + 30px)}
+.prose h2,.prose h3,.prose h4{margin:22px 0 9px}
+.prose h2,.case h3{color:#a5eba0}
+.prose h2::before{content:"## ";color:#4d6a47}
+.prose h3::before,.case h4::before{content:"### ";color:#4d6a47}
+.case h3::before{content:"## "}
+.prose>:first-child{margin-top:0}
+.prose ul,.prose ol{margin:0 0 9px;padding-left:2ch}
+.prose ol{padding-left:3.5ch}
+.prose ul{list-style:"- "}
+.prose li{padding:2px 0;border:0}
+.prose img{display:block;max-width:100%;height:auto;margin:4px 0 13px;
+  border:1px solid #1d291b}
+.prose .meta{color:#7e8f78;font-size:11.5px;margin-bottom:16px}
+
+.prose pre{overflow-x:auto;background:#0c130c;border:1px solid #1d291b;padding:10px 12px;margin:0 0 13px;font-size:12px;line-height:1.5}
+.prose code{color:#cfe8c8}
+.prose p code{background:#0c130c;border:1px solid #1d291b;padding:0 3px}
+</style>
+</head>
+<body>
+<div class="grid" aria-hidden="true"></div>
+<div class="wrap">
+<header><nav><span class="site">dustinmontgomery.com</span><span class="sp"></span><a href="/">home</a><a href="/blog/" class="on" aria-current="page">writing</a><a href="/#projects">projects</a><a href="/seo-consulting/">seo consulting</a><a href="/#expert-witness">expert witness</a><a href="/#elsewhere">elsewhere</a></nav></header>
+<main class="desk">
+<div class="win wide doc"><div class="bar"><i></i><i></i><i></i><b>writing</b></div><div class="bd"><article class="prose h-entry"><link class="u-url" href="https://dustinmontgomery.com/blog/how-this-site-works/"><h1 class="p-name">How This Site Works</h1><p class="meta"><span class="p-author h-card">Dustin Montgomery</span> &middot; <time class="dt-published" datetime="2026-10-08">October 8, 2026</time></p>
+<div class="e-content"><p>I moved this site off WordPress and rebuilt it as plain HTML, working with AI the whole way through. I wanted something small and fast that also does a few fun things a WordPress site never could. This post goes through the parts that are worth borrowing, with the code.</p>
+<h2>The rules</h2>
+<p>There are no cookies, no trackers and no JavaScript on any page. The home page is one HTML file under 14 KB, with the CSS inline. That number comes from how a new connection starts: the server can usually only send about 14 KB in the first round trip (10 TCP packets of roughly 1,460 bytes each), so a page that fits in that shows up without waiting on a second round trip.</p>
+<h2>The ASCII art shadow hack</h2>
+<p>The DUSTIN MONTGOMERY header is plain text in a <code>&lt;pre&gt;</code>, made of block characters like <code>█ ▄ ▀</code>. To get the green stripes I started with the usual trick of clipping a gradient background to the text:</p>
+<pre><code>pre.art{
+  background-image:linear-gradient(#dcfcd2 0%,#b4f1a6 26%,#84d876 27%,
+    #6ec95f 50%,#3f7a35 51%,#33632a 76%,#27491f 77%,#1d3718 100%);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+}</code></pre>
+<p>That works, but the browser antialiases the edge of every character, so thin dark seams show up between blocks that are supposed to touch. On a big header it ends up looking like a grid.</p>
+<p>A trick that fixes the seams is stacking a few text shadows with no blur and no offset. Each one paints the glyph edges again, and after four of them the half transparent edge pixels are close to solid:</p>
+<pre><code>text-shadow:0 0 0 #7ddc6c,0 0 0 #7ddc6c,0 0 0 #7ddc6c,0 0 0 #7ddc6c;</code></pre>
+<p>The catch is that a shadow is a single colour, and it paints on top of a clipped background, so you lose the gradient. The fix was to do the two jobs separately. The text is drawn solid in the lightest colour of the gradient with the four shadows, which closes the seams, and then a pseudo-element lays the gradient over it with <code>mix-blend-mode:darken</code>:</p>
+<pre><code>pre.art{
+  position:relative;
+  color:#dcfcd2;
+  text-shadow:0 0 0 #dcfcd2,0 0 0 #dcfcd2,0 0 0 #dcfcd2,0 0 0 #dcfcd2;
+}
+pre.art::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(#dcfcd2 0%,#b4f1a6 26%,#84d876 27%,#6ec95f 50%,
+    #3f7a35 51%,#33632a 76%,#27491f 77%,#1d3718 100%);
+  mix-blend-mode:darken;
+}</code></pre>
+<p>Darken keeps the darker of the two colours, one channel at a time. Every colour in the gradient is darker than <code>#dcfcd2</code>, so on top of the text you get exactly the gradient. Every colour in the gradient is also lighter than the panel behind it (<code>#101710</code>), so the background comes through untouched.</p>
+<p>A few things will break it. The background has to be darker than the darkest stop. Nothing between the text and the panel can start its own layer (a <code>filter</code>, <code>opacity</code> below 1 or <code>isolation:isolate</code>), or the blend has nothing to blend with and the gradient paints as a solid block. I also started with white text, and the light stripes got grey hairlines on their edges, because a white edge pixel mixed with the dark background comes out grey. Drawing the text in the lightest gradient colour keeps those edges green. The real version also stretches the overlay .3em past the box, since the characters hang a little outside their line box and the bottom row was peeking out white.</p>
+<h2>Showing where an anchor link lands</h2>
+<p>A few of the nav links (projects, expert witness, elsewhere) jump to a panel on the home page. The page is short, so on a desktop the scroll barely moves and it isn't obvious anything happened. CSS can tell which element the <code>#anchor</code> in the URL points to with <code>:target</code>, so that panel gets a quick green flash and then keeps a quiet highlight:</p>
+<pre><code>.win:target{border-color:#4d6a47}
+.win:target&gt;.bar h2{color:#a5eba0}
+@media (prefers-reduced-motion:no-preference){
+  .win:target{animation:hl 1.6s ease-out}
+}
+@keyframes hl{
+  0%{border-color:#a5eba0;box-shadow:0 0 0 3px #a5eba055,0 0 18px #6ec95f66}
+  100%{border-color:#4d6a47;box-shadow:0 0 0 0 transparent}
+}</code></pre>
+<p>Without JavaScript it won't flash again if you click the same link twice in a row, because the URL doesn't change.</p>
+<h2>You can curl it</h2>
+<p>Try this in a terminal:</p>
+<pre><code>curl https://dustinmontgomery.com/</code></pre>
+<p>You get the page as text, with DUSTIN in the same green stripes as the website. Every page has two text twins sitting next to it: <code>index.txt</code> (plain) and <code>index.ansi</code> (the same text with 24-bit colour codes). A Cloudflare Worker looks at the user agent and hands curl the colour one, and gives Lynx, w3m and wget the plain one, since they would print the colour codes as junk:</p>
+<pre><code>const TEXT_CLIENTS = /\b(curl|wget|httpie|xh|lynx|w3m|links|elinks)\b/i;
+const COLOUR_CLIENTS = /\b(curl|httpie|xh)\b/i;
+// for a page URL ending in "/", fetch index.ansi or index.txt from the
+// origin instead and return it as text/plain</code></pre>
+<p>Add <code>?plain</code> for no colour or <code>?html</code> for the real page. In a browser you can read a plain twin directly, like <a href="/blog/index.txt">/blog/index.txt</a>. The Worker runs on Cloudflare's servers and never in your browser, so the no JavaScript rule still holds for visitors.</p>
+<p>The twins come out of the small Python script that builds the site. It turns each finished page into text, wraps it at 72 columns and lists the links as numbered references at the bottom. Only DUSTIN makes it into the text version, because MONTGOMERY is 124 characters wide and would wrap in an 80 column terminal.</p>
+<h2>Hosting it for free</h2>
+<p>Apart from renewing the domain, this site costs nothing to run.</p>
+<p>GitHub Pages serves the files straight from a branch of the repo. An empty <code>.nojekyll</code> file in the root tells it to skip Jekyll and serve the files exactly as they are, which matters if you ever need a folder that starts with an underscore or a dot.</p>
+<p>Cloudflare's free plan sits in front of it. It handles the DNS and HTTPS and runs the Worker, which gets 100,000 requests a day for free. Its Email Routing forwards the addresses on the domain to a normal inbox, also for free, so there is no mail host to pay for either.</p>
+<p>Two settings are worth knowing about if you put Cloudflare's proxy in front of GitHub Pages. Set SSL to Full, because Flexible gets stuck in a redirect loop with GitHub's Enforce HTTPS. And turn on Always Use HTTPS, because a Worker answers before GitHub ever gets the chance to redirect plain http requests.</p>
+<h2>Moving off WordPress without breaking links</h2>
+<p>The old site had posts at URLs like <code>/seedless-torrents.html</code> and <code>/dtc-ecommerce-case-study/</code>, plus WordPress short links like <code>/?p=1453</code>. GitHub Pages can't do redirects, so the Worker keeps a map of old paths to new ones and answers with a 301. The case studies all became sections of one page, so those redirect to an anchor, like <a href="/seo-consulting/#dtc-ecommerce">/seo-consulting/#dtc-ecommerce</a>. WordPress leftovers like <code>/wp-content/</code> get a 410, which tells search engines they are gone for good rather than missing.</p>
+<h2>The small stuff</h2>
+<p>Every page prefetches the other main pages with <code>&lt;link rel="prefetch"&gt;</code>, and the Worker adds a <code>Speculation-Rules</code> header so Chrome prerenders a page when you hover over a link to it. Sending the rules as a header instead of a <code>&lt;script type="speculationrules"&gt;</code> tag keeps the page source free of script tags.</p>
+<p>The image you see when a link to this site is shared on X or LinkedIn is the same ASCII header, rendered to a 1200 by 630 PNG by headless Chromium during the build, so it updates itself when the bio changes. The other images are WebP, with their width and height set so nothing jumps around while they load.</p>
+<p>The home page also carries microformats (an <code>h-card</code> with <code>rel="me"</code> links to my profiles), the posts are marked up as <code>h-entry</code> and there is an <a href="/feed.xml">RSS feed</a>, so IndieWeb tools and feed readers can follow along without any of the usual widgets.</p>
+<p>If you enjoyed this read, you might also consider signing up for <a href="https://dustin-montgomery.beehiiv.com/subscribe">my newsletter</a>.</p></div></article></div></div>
+</main>
+<footer class="foot">
+<p>No cookies, no trackers, no JavaScript.</p>
+</footer>
+</div>
+</body>
+</html>
