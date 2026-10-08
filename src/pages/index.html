@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dustin Montgomery</title>
+<meta name="description" content="A Christ follower and solo founder-ish builder who makes real products with AI, and shares what works and what dies.">
+<style>*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#0a0e0a;color:#e7f1e2;overflow-x:hidden;
+  font:13.5px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:20px 16px 56px;
+  position:relative;z-index:1}
+.desk{display:grid;gap:13px;align-items:start;
+  grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr))}
+.desk>.win{margin:0}
+.desk>.win.hero{grid-column:1/-1}
+/* one-column regime: auto-fit can hand a panel the full 1120px wrap, which puts
+   the measure back over 90 characters. Cap the wrap until two columns fit. */
+@media (max-width:864px){.wrap{max-width:660px}}
+.grid{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(#0f170f 1px,transparent 1px);
+  background-size:14px 14px}
+@media (max-width:700px){.grid{display:none}}
+a{color:#a5eba0;text-decoration:none}
+a:hover{text-decoration:underline}
+nav{display:flex;flex-wrap:wrap;gap:3px 13px;align-items:baseline;
+  border-bottom:1px solid #1d291b;padding:9px 0;margin-bottom:20px;font-size:12.5px}
+nav a{color:#7e8f78}
+nav a.on{color:#a5eba0}
+nav a:hover{color:#a5eba0}
+nav .sp{flex:1;min-width:8px}
+.win{background:#101710;border:1px solid #1d291b;margin:0 0 13px;
+  container-type:inline-size}
+.win>.bar{display:flex;align-items:center;gap:8px;background:#0c130c;
+  border-bottom:1px solid #1d291b;padding:6px 10px}
+.win>.bar i{width:7px;height:7px;border-radius:1px;background:#2b3a28;display:block;flex:none}
+.win>.bar b{margin-left:auto;color:#7e8f78;font-size:11.5px;letter-spacing:.06em;
+  font-weight:400}
+.win>.bd{padding:13px 14px 15px}
+.win.hero>.bd{padding:16px 14px 18px;text-align:center}
+h1,h2,h3{font-size:13.5px;font-weight:400;margin:0 0 9px}
+h1{color:#a5eba0}
+p{margin:0 0 9px}
+p:last-child,ul:last-child{margin-bottom:0}
+ul{margin:0;padding:0;list-style:none}
+li{padding:6px 0;border-bottom:1px solid #1d291b}
+li:last-child{border-bottom:0}
+li .m{color:#7e8f78;font-size:11.5px;display:block;margin-top:2px}
+.hero .bio{color:#e7f1e2;margin:12px 0 4px}
+.hero .one{color:#7e8f78;font-size:12.5px}
+.tag{color:#7e8f78;font-size:11.5px;letter-spacing:.06em}
+.todo{color:#7e8f78;border:1px dashed #2b3a28;padding:0 4px;font-size:11.5px}
+.foot{border-top:1px solid #1d291b;margin-top:26px;padding-top:12px;
+  color:#7e8f78;font-size:11.5px}
+.foot a{color:#7e8f78}
+.grp{margin:0 0 10px}
+.cols{display:grid;grid-template-columns:1fr;gap:0 18px}
+.cols li{padding:6px 0;border-bottom:1px solid #1d291b}
+.cols li:last-child{border-bottom:1px solid #1d291b}
+.cols li a{display:flex;justify-content:space-between;gap:10px;color:#7ecb6e}
+.cols li a:hover{color:#a5eba0}
+.cols li a .m{display:inline;margin:0;font-size:11.5px;color:#7e8f78}
+@container (min-width:490px){.cols{grid-template-columns:1fr 1fr}}
+
+.artband{max-width:1058px;margin:0 auto}
+pre.art{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  line-height:1;white-space:pre;margin:0 auto;display:block;
+  width:fit-content;max-width:100%;position:relative;
+  color:#dcfcd2;text-shadow:0 0 0 #dcfcd2,0 0 0 #dcfcd2,0 0 0 #dcfcd2,0 0 0 #dcfcd2}
+/* background-clip:text leaves hairline seams between block glyphs, and text-shadow
+   can't carry a gradient (it paints over a clipped background). So the glyphs are
+   drawn solid in the lightest stop with 4 stacked 0-blur shadows, which closes the
+   seams, and ::after lays the gradient on with mix-blend-mode:darken (per-channel
+   min). #dcfcd2 is >= every stop and every stop is >= the #101710 card, so glyphs
+   take the exact gradient and the card shows through untouched. Nothing between
+   here and the card may isolate (filter, opacity, isolation), or the overlay
+   paints as a solid block. Glyphs overhang the line box slightly, so the overlay
+   reaches .3em past it; the gradient stays sized to the box. */
+pre.art::after{content:"";position:absolute;inset:-.3em;pointer-events:none;
+  background:
+    linear-gradient(#1d3718,#1d3718) 0 100%/100% .3em no-repeat,
+    linear-gradient(#dcfcd2 0%,#b4f1a6 26%,#84d876 27%,#6ec95f 50%,#3f7a35 51%,
+      #33632a 76%,#27491f 77%,#1d3718 100%) 0 .3em/100% calc(100% - .6em) no-repeat,
+    #dcfcd2;
+  mix-blend-mode:darken}
+pre.art-dust{font-size:min(2.0013vw,28.818px)}
+pre.art-mont{font-size:min(0.9842vw,14.172px)}
+</style>
+</head>
+<body>
+<div class="grid" aria-hidden="true"></div>
+<div class="wrap">
+<nav><a href="/">dustinmontgomery.com</a><span class="sp"></span><a href="/" class="on">home</a><a href="/writing/">writing</a><a href="/projects/">projects</a><a href="/consulting/">consulting</a><a href="/witness/">witness</a><a href="/elsewhere/">elsewhere</a></nav>
+<div class="desk">
+<div class="win hero"><div class="bar"><i></i><i></i><i></i><b>dustinmontgomery.com</b></div><div class="bd"><div class="artband"><pre class="art art-dust" role="img" aria-label="DUSTIN">████████▄  ███    █▄     ▄████████     ███      ▄█  ███▄▄▄▄  
+███   ▀███ ███    ███   ███    ███ ▀█████████▄ ███  ███▀▀▀██▄
+███    ███ ███    ███   ███    █▀     ▀███▀▀██ ███▌ ███   ███
+███    ███ ███    ███   ███            ███   ▀ ███▌ ███   ███
+███    ███ ███    ███ ▀███████████     ███     ███▌ ███   ███
+███    ███ ███    ███          ███     ███     ███  ███   ███
+███   ▄███ ███    ███    ▄█    ███     ███     ███  ███   ███
+████████▀  ████████▀   ▄████████▀     ▄████▀   █▀    ▀█   █▀ 
+                                                             </pre><pre class="art art-mont" role="img" aria-label="MONTGOMERY">  ▄▄▄▄███▄▄▄▄    ▄██████▄  ███▄▄▄▄       ███        ▄██████▄   ▄██████▄    ▄▄▄▄███▄▄▄▄      ▄████████    ▄████████ ▄██   ▄  
+▄██▀▀▀███▀▀▀██▄ ███    ███ ███▀▀▀██▄ ▀█████████▄   ███    ███ ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███   ███    ███ ███   ██▄
+███   ███   ███ ███    ███ ███   ███    ▀███▀▀██   ███    █▀  ███    ███ ███   ███   ███   ███    █▀    ███    ███ ███▄▄▄███
+███   ███   ███ ███    ███ ███   ███     ███   ▀  ▄███        ███    ███ ███   ███   ███  ▄███▄▄▄      ▄███▄▄▄▄██▀ ▀▀▀▀▀▀███
+███   ███   ███ ███    ███ ███   ███     ███     ▀▀███ ████▄  ███    ███ ███   ███   ███ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ▄██   ███
+███   ███   ███ ███    ███ ███   ███     ███       ███    ███ ███    ███ ███   ███   ███   ███    █▄  ▀███████████ ███   ███
+███   ███   ███ ███    ███ ███   ███     ███       ███    ███ ███    ███ ███   ███   ███   ███    ███   ███    ███ ███   ███
+ ▀█   ███   █▀   ▀██████▀   ▀█   █▀     ▄████▀     ████████▀   ▀██████▀   ▀█   ███   █▀    ██████████   ███    ███  ▀█████▀ 
+                                                                                                        ███    ███          </pre></div></div></div>
+
+<div class="win"><div class="bar"><i></i><i></i><i></i><b>writing</b></div><div class="bd"><p>Notes on what I built and what broke.</p>
+<ul>
+<li><a href="/writing/">Seedless Torrents</a><span class="m">20 years of an idea,
+built with AI, and why it never worked past 8 bits</span></li>
+<li><a href="/writing/">Note Taking Applications</a><span class="m">what I tried
+and what stuck</span></li>
+</ul>
+<p style="margin-top:9px"><a href="/writing/">All writing &rarr;</a></p></div></div>
+<div class="win"><div class="bar"><i></i><i></i><i></i><b>projects</b></div><div class="bd"><p class="tag">ClipHuman</p>
+<p>One 5 minute interview becomes a week of publish ready vertical clips. We feed
+you questions through the glass, you answer on camera. No script, no editing, no
+second person on screen. Just you, being human.</p>
+<p style="margin-top:9px"><a href="/projects/">Projects &rarr;</a></p></div></div>
+<div class="win"><div class="bar"><i></i><i></i><i></i><b>consulting</b></div><div class="bd"><p>SEO work, when it is the right fit. Two results worth
+naming: 0 to 55,000 organic visits a month in about a year, and +402,000 visits a
+month in 9 months.</p>
+<p style="margin-top:9px"><a href="/consulting/">Consulting &rarr;</a> &middot;
+<a href="https://cal.com/dustinmontgomery/15min">Book 15 minutes</a></p></div></div>
+<div class="win"><div class="bar"><i></i><i></i><i></i><b>witness</b></div><div class="bd"><p>Expert witness work on torrenting and BitTorrent technology,
+from 17 years of running LegitTorrents.info.</p>
+<p style="margin-top:9px"><a href="/witness/">Witness &rarr;</a></p></div></div>
+<div class="win"><div class="bar"><i></i><i></i><i></i><b>elsewhere</b></div><div class="bd"><p>Other places I am. One newsletter list, shared between
+this site and LegitTorrents.info.</p>
+<ul class="cols"><li><a href="https://x.com/DustinMontgomer">X<span class="m">@DustinMontgomer</span></a></li><li><a href="https://www.linkedin.com/in/dustinmontgomery">linkedin<span class="m">dustinmontgomery</span></a></li><li><a href="https://dustin-montgomery.beehiiv.com/subscribe">newsletter<span class="m">same list</span></a></li><li><a href="https://legittorrents.info/">legittorrents.info<span class="m">2005-2023</span></a></li><li><a href="mailto:hi@dustinmontgomery.com">email<span class="m">hi@dustinmontgomery.com</span></a></li></ul></div></div>
+
+</div>
+<div class="foot">
+<p>No cookies, no trackers, no JavaScript. One file per page, under 14 KB.
+Built by hand.</p>
+<p><a href="/elsewhere/">Elsewhere</a> &middot; <a href="mailto:hi@dustinmontgomery.com">Email</a>
+&middot; <a href="https://dustin-montgomery.beehiiv.com/subscribe">Newsletter</a></p>
+</div>
+</div>
+</body>
+</html>
