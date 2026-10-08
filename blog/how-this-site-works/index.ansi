@@ -36,6 +36,13 @@ That works, but the browser antialiases the edge of every character, so
 thin dark seams show up between blocks that are supposed to touch. On a
 big header it ends up looking like a grid.
 
+[image: Close-up of the top of the D in the header with the gradient
+clip: thin dark vertical lines run down between every column of blocks,
+with fainter horizontal lines between rows.]
+
+Before: the gradient clipped to the text, enlarged 3x. Every dark line
+is a seam between two characters.
+
 A trick that fixes the seams is stacking a few text shadows with no blur
 and no offset. Each one paints the glyph edges again, and after four of
 them the half transparent edge pixels are close to solid:
@@ -65,6 +72,12 @@ colour in the gradient is darker than `#dcfcd2`, so on top of the text
 you get exactly the gradient. Every colour in the gradient is also
 lighter than the panel behind it (`#101710`), so the background comes
 through untouched.
+
+[image: The same close-up with the shadow hack: the blocks are solid,
+with no lines between them, and the same green stripes.]
+
+After: solid text plus four shadows, with the gradient blended on top.
+Same crop, same 3x.
 
 A few things will break it. The background has to be darker than the
 darkest stop. Nothing between the text and the panel can start its own
