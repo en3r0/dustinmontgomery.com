@@ -6,7 +6,7 @@ import re, html, os, subprocess
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 # built site: a checkout of the `site` branch (what GitHub Pages serves)
-SITE = os.environ.get('SITE', '/home/en3r0/Projects/dustinmontgomery-site')
+SITE = os.environ.get('SITE', os.path.join(os.path.dirname(REPO), 'dustinmontgomery-site'))
 WP = f'{REPO}/src/wordpress'   # the old WordPress pages and images this site migrated
 SRC = f'{REPO}/src/pages'      # the hand-written first draft of the section pages
 BASE = 'https://dustinmontgomery.com'
@@ -347,6 +347,14 @@ CODE_CSS = (
 wr(f'{SITE}/blog/how-this-site-works/index.html',
    article('/blog/how-this-site-works/', WORKS[0], '2026-10-08',
            rd(f'{REPO}/src/posts/how-this-site-works.html').strip(), WORKS[1], extra_css=CODE_CSS))
+
+# A post's own files (images etc.) go in src/posts/<slug>/ and are copied next to it.
+import shutil as _shutil
+for d in sorted(os.listdir(f'{REPO}/src/posts')):
+    if os.path.isdir(f'{REPO}/src/posts/{d}'):
+        for f in sorted(os.listdir(f'{REPO}/src/posts/{d}')):
+            os.makedirs(f'{SITE}/blog/{d}', exist_ok=True)
+            _shutil.copyfile(f'{REPO}/src/posts/{d}/{f}', f'{SITE}/blog/{d}/{f}')
 wr(f'{SITE}/blog/i-made-a-thing-that-haunts-me/index.html',
    article('/blog/i-made-a-thing-that-haunts-me/', HAUNT[0], '2026-05-29', """<p>Death comes for us all eventually. The longer you live, the closer you get. Cherish it, plan for it. Do not waste it whatever you do!</p>
 <p>This is not related to torrenting, but it is something I created and I wanted to share it with you.</p>
@@ -817,7 +825,20 @@ wr(f'{SITE}/.nojekyll', '')
 # /favicon.ico for crawlers and feed readers that never read <link rel=icon>:
 # the SVG rendered at 32px, wrapped as a PNG-in-ICO
 import struct, tempfile
-CHROME = os.path.expanduser('~/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell')
+import glob, shutil
+def find_chrome():
+    """$CHROME if set, else Playwright's headless shell, else any Chromium/Chrome on PATH."""
+    if os.environ.get('CHROME'):
+        return os.environ['CHROME']
+    shells = sorted(glob.glob(os.path.expanduser(
+        '~/.cache/ms-playwright/chromium_headless_shell-*/chrome-headless-shell-*/chrome-headless-shell')))
+    if shells:
+        return shells[-1]
+    for name in ('chromium', 'chromium-browser', 'google-chrome', 'google-chrome-stable', 'chrome'):
+        if shutil.which(name):
+            return shutil.which(name)
+    raise SystemExit('No Chromium found: set CHROME=/path/to/chrome (see README.md)')
+CHROME = find_chrome()
 with tempfile.TemporaryDirectory() as td:
     open(f'{td}/i.html', 'w').write('<body style="margin:0"><img src="file://' + SITE + '/favicon.svg" '
                                     'width="32" height="32" style="display:block">')
