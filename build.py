@@ -282,7 +282,7 @@ def first_sentence(frag):
 
 ARTICLE_DATES = {}  # path -> ISO date, for the sitemap
 
-def article(path, title, date, body, desc, extra_meta=''):
+def article(path, title, date, body, desc, extra_meta='', extra_css=''):
     """date is ISO: YYYY-MM-DD, or YYYY-MM when only the month is known."""
     ARTICLE_DATES[path] = date
     shown = nice_date(date) if len(date) == 10 else nice_month(date)
@@ -294,7 +294,7 @@ def article(path, title, date, body, desc, extra_meta=''):
     return page(path, f'{title} · Dustin Montgomery', desc,
                 win({'blog': 'writing'}.get(path.strip('/').split('/')[0],
                                             path.strip('/').split('/')[0].replace('-', ' ')), inner, 'wide doc'),
-                on='/' + path.strip('/').split('/')[0] + '/', og_type='article',
+                on='/' + path.strip('/').split('/')[0] + '/', og_type='article', extra_css=extra_css,
                 extra_head=f'<meta property="article:published_time" content="{date}">\n')
 
 def nice_month(iso):
@@ -334,6 +334,18 @@ wr(f'{SITE}/blog/note-taking-applications/index.html',
 # ---- I made a thing that haunts me (newsletter post, 2026-05-29, beehiiv). The
 # body's first line repeated the title, so it is the h1 here instead.
 HAUNT = ('I made a thing that haunts me.', 'Death comes for us all eventually.')
+
+# ---- How This Site Works (2026-10-08). Body lives in src/posts/; code blocks get
+# their styling on this page only, so no other page's CSS changes.
+WORKS = ('How This Site Works', 'The ASCII art shadow hack, pages you can curl, and running it all for free.')
+CODE_CSS = (
+    '\n.prose pre{overflow-x:auto;background:#0c130c;border:1px solid #1d291b;'
+    'padding:10px 12px;margin:0 0 13px;font-size:12px;line-height:1.5}'
+    '\n.prose code{color:#cfe8c8}'
+    '\n.prose p code{background:#0c130c;border:1px solid #1d291b;padding:0 3px}\n')
+wr(f'{SITE}/blog/how-this-site-works/index.html',
+   article('/blog/how-this-site-works/', WORKS[0], '2026-10-08',
+           rd(f'{REPO}/src/posts/how-this-site-works.html').strip(), WORKS[1], extra_css=CODE_CSS))
 wr(f'{SITE}/blog/i-made-a-thing-that-haunts-me/index.html',
    article('/blog/i-made-a-thing-that-haunts-me/', HAUNT[0], '2026-05-29', """<p>Death comes for us all eventually. The longer you live, the closer you get. Cherish it, plan for it. Do not waste it whatever you do!</p>
 <p>This is not related to torrenting, but it is something I created and I wanted to share it with you.</p>
@@ -422,9 +434,10 @@ b = must_sub('<li><a href="https://x.com/DustinMontgomer">', '<li><a href="https
 b = must_sub('<li><a href="https://www.linkedin.com/in/dustinmontgomery">', '<li><a href="https://www.linkedin.com/in/dustinmontgomery" rel="me" class="u-url" itemprop="sameAs">', b)
 b = must_sub('<li><a href="/blog/">Seedless Torrents</a>', '<li><a href="/blog/seedless-torrents/">Seedless Torrents</a>', b)
 b = must_sub('<li><a href="/blog/seedless-torrents/">Seedless Torrents</a>',
+             f'<li><a href="/blog/how-this-site-works/">{WORKS[0]}</a><span class="m">{WORKS[1]}</span></li>'
              f'<li><a href="/blog/i-made-a-thing-that-haunts-me/">{HAUNT[0]}</a><span class="m">{HAUNT[1]}</span></li>'
              '<li><a href="/blog/seedless-torrents/">Seedless Torrents</a>', b)
-# home lists the newest two; Note Taking stays on /blog/
+# home lists the newest three; Note Taking stays on /blog/
 b = must_sub('''<li><a href="/blog/">Note Taking Applications</a><span class="m">what I tried
 and what stuck</span></li>
 ''', '', b)
@@ -473,7 +486,8 @@ b = fix_common(desk_of(f'{SRC}/writing/index.html'))
 b = re.sub(r'\n<div class="win"><div class="bar"><i></i><i></i><i></i><b>note</b>.*', '', b, flags=re.S)
 assert 'todo' not in b
 b = must_sub('<div class="bd"><ul><li><a href="/blog/seedless-torrents/">',
-             f'<div class="bd"><ul><li><a href="/blog/i-made-a-thing-that-haunts-me/">{HAUNT[0]}</a><span class="m">{HAUNT[1]}</span></li>'
+             f'<div class="bd"><ul><li><a href="/blog/how-this-site-works/">{WORKS[0]}</a><span class="m">{WORKS[1]}</span></li>'
+             f'<li><a href="/blog/i-made-a-thing-that-haunts-me/">{HAUNT[0]}</a><span class="m">{HAUNT[1]}</span></li>'
              '<li><a href="/blog/seedless-torrents/">', b)
 b = re.sub(r'<li><a href="/blog/', '<li class="h-entry"><a class="u-url p-name" href="/blog/', b)
 b = b.replace('<span class="m">', '<span class="m p-summary">')
@@ -557,7 +571,14 @@ wr(f'{SITE}/feed.xml', f"""<?xml version="1.0" encoding="UTF-8"?>
 <atom:link href="{BASE}/feed.xml" rel="self" type="application/rss+xml"/>
 <description>Notes on what I built and what broke.</description>
 <language>en</language>
-<lastBuildDate>Fri, 29 May 2026 18:17:41 +0000</lastBuildDate>
+<lastBuildDate>Thu, 08 Oct 2026 12:00:00 +0000</lastBuildDate>
+<item>
+  <title>How This Site Works</title>
+  <link>{BASE}/blog/how-this-site-works/</link>
+  <guid>{BASE}/blog/how-this-site-works/</guid>
+  <pubDate>Thu, 08 Oct 2026 12:00:00 +0000</pubDate>
+  <description>The ASCII art shadow hack, pages you can curl, and running it all for free.</description>
+</item>
 <item>
   <title>I made a thing that haunts me.</title>
   <link>{BASE}/blog/i-made-a-thing-that-haunts-me/</link>
@@ -586,7 +607,7 @@ wr(f'{SITE}/feed.xml', f"""<?xml version="1.0" encoding="UTF-8"?>
 
 import datetime
 BUILD_DATE = datetime.date.today().isoformat()
-urls = ['/', '/blog/', '/blog/i-made-a-thing-that-haunts-me/', '/blog/seedless-torrents/', '/blog/note-taking-applications/',
+urls = ['/', '/blog/', '/blog/how-this-site-works/', '/blog/i-made-a-thing-that-haunts-me/', '/blog/seedless-torrents/', '/blog/note-taking-applications/',
         '/seo-consulting/'] + [f'/seo-consulting/{n}/' for _, n in DTC]
 for u in urls:
     assert os.path.exists(f'{SITE}{u}index.html'), u
@@ -615,7 +636,13 @@ def to_text(page_html, url):
     art = [l.rstrip() for l in html.unescape(dust.group(1)).split('\n')] if dust else []
     while art and not art[-1]:
         art.pop()
-    main = re.sub(r'<pre\b.*?</pre>', '', main, flags=re.S)
+    main = re.sub(r'<pre class="art\b.*?</pre>', '', main, flags=re.S)
+    code = []
+    def keep_code(m):
+        code.append(html.unescape(re.sub(r'<[^>]+>', '', m.group(1))).rstrip('\n'))
+        return f'\x00CODE{len(code) - 1}\x00P'
+    main = re.sub(r'<pre\b[^>]*>(.*?)</pre>', keep_code, main, flags=re.S)
+    main = re.sub(r'<code>(.*?)</code>', r'`\1`', main, flags=re.S)
     main = re.sub(r'<link\b[^>]*>', '', main)
     main = re.sub(r'<div class="bar"><i></i><i></i><i></i><b>.*?</b></div>', '', main)
     main = re.sub(r'<div class="bar"><i></i><i></i><i></i><h2>(.*?)</h2></div>', r'<h2>\1</h2>', main)
@@ -643,7 +670,11 @@ def to_text(page_html, url):
         out.extend(textwrap.wrap(text, 72, initial_indent=first, subsequent_indent=rest,
                                  break_long_words=False, break_on_hyphens=False))
     for part in main.split('\x00'):
-        kind = next((k for k in ('H1', 'H2', 'H3', 'H4', 'BIO', 'LI', 'BR', 'M', 'P') if part.startswith(k)), 'P')
+        kind = next((k for k in ('CODE', 'H1', 'H2', 'H3', 'H4', 'BIO', 'LI', 'BR', 'M', 'P') if part.startswith(k)), 'P')
+        if kind == 'CODE':
+            out.append('')
+            out.extend('    ' + line for line in code[int(part[4:])].split('\n'))
+            continue
         text = ' '.join(part[len(kind):].split()) if part.startswith(kind) else ' '.join(part.split())
         if not text:
             continue
