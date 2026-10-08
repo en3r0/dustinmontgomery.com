@@ -1,0 +1,6 @@
+# editor and OS leftovers
+*.swp
+*.swo
+*~
+.DS_Store
+__pycache__/
