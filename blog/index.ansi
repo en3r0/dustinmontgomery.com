@@ -1,0 +1,33 @@
+[38;2;126;143;120mhttps://dustinmontgomery.com/blog/[0m
+
+[1m[38;2;165;235;160mWriting[0m
+[38;2;126;143;120m=======[0m
+
+[38;2;165;235;160m## writing[0m
+
+- I made a thing that haunts me. [38;2;126;143;120m[1][0m
+  Death comes for us all eventually.
+
+- Seedless Torrents [38;2;126;143;120m[2][0m
+  An idea I had for about 20 years: generate the file pieces from a seed
+  so a torrent needs no peers. Prototyped with AI over several months,
+  tried AES-CTR, Feistel networks, Merkle trees and Gray code. It failed
+  past 8 bits. The seed was always larger than the data.
+
+- Note Taking Applications [38;2;126;143;120m[3][0m
+  Tiago Forte's Building a Second Brain, and what I actually used:
+  Joplin, Nextcloud Notes, MindForger, and Emacs (Doom) with the
+  Remembrance Agent.
+
+[38;2;165;235;160m## newsletter[0m
+
+Get on the newsletter for infrequent updates.
+
+Subscribe → [38;2;126;143;120m[4][0m
+
+[38;2;126;143;120mLinks[0m
+[38;2;126;143;120m-----[0m
+[38;2;126;143;120m[1][0m https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
+[38;2;126;143;120m[2][0m https://dustinmontgomery.com/blog/seedless-torrents/
+[38;2;126;143;120m[3][0m https://dustinmontgomery.com/blog/note-taking-applications/
+[38;2;126;143;120m[4][0m https://dustin-montgomery.beehiiv.com/subscribe

@@ -1,0 +1,33 @@
+https://dustinmontgomery.com/blog/
+
+Writing
+=======
+
+## writing
+
+- I made a thing that haunts me. [1]
+  Death comes for us all eventually.
+
+- Seedless Torrents [2]
+  An idea I had for about 20 years: generate the file pieces from a seed
+  so a torrent needs no peers. Prototyped with AI over several months,
+  tried AES-CTR, Feistel networks, Merkle trees and Gray code. It failed
+  past 8 bits. The seed was always larger than the data.
+
+- Note Taking Applications [3]
+  Tiago Forte's Building a Second Brain, and what I actually used:
+  Joplin, Nextcloud Notes, MindForger, and Emacs (Doom) with the
+  Remembrance Agent.
+
+## newsletter
+
+Get on the newsletter for infrequent updates.
+
+Subscribe → [4]
+
+Links
+-----
+[1] https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
+[2] https://dustinmontgomery.com/blog/seedless-torrents/
+[3] https://dustinmontgomery.com/blog/note-taking-applications/
+[4] https://dustin-montgomery.beehiiv.com/subscribe

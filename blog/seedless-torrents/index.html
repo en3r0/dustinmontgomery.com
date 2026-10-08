@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Billion Dollar Idea (Seedless Torrents) is Dead - A Retrospective · Dustin Montgomery</title>
+<meta name="description" content="An idea I had for about 20 years, prototyped with AI, and why it failed past 8 bits.">
+<link rel="canonical" href="https://dustinmontgomery.com/blog/seedless-torrents/">
+<meta property="og:url" content="https://dustinmontgomery.com/blog/seedless-torrents/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dustin Montgomery">
+<meta property="og:title" content="My Billion Dollar Idea (Seedless Torrents) is Dead - A Retrospective · Dustin Montgomery">
+<meta property="og:description" content="An idea I had for about 20 years, prototyped with AI, and why it failed past 8 bits.">
+<meta property="og:image" content="https://dustinmontgomery.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dustin Montgomery, in green block-letter ASCII art">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@DustinMontgomer">
+<meta name="twitter:creator" content="@DustinMontgomer">
+<meta property="article:published_time" content="2025-02">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Dustin Montgomery" href="/feed.xml">
+<link rel="alternate" type="text/plain" href="/blog/seedless-torrents/index.txt">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0e0a">
+<link rel="prefetch" href="/">
+<link rel="prefetch" href="/blog/">
+<link rel="prefetch" href="/seo-consulting/">
+<style>*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#0a0e0a;color:#e7f1e2;overflow-x:hidden;
+  font:13.5px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:20px 16px 56px;
+  position:relative;z-index:1}
+.desk{display:grid;gap:13px;
+  grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr))}
+.desk>.win{margin:0}
+.desk>.win.hero,.desk>.win.wide{grid-column:1/-1}
+@media (max-width:864px){.wrap{max-width:660px}}
+.grid{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(#0f170f 1px,transparent 1px);
+  background-size:14px 14px}
+@media (max-width:700px){.grid{display:none}}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap}
+a{color:#a5eba0;text-decoration:none}
+a:hover{text-decoration:underline}
+.bd a{text-decoration:underline;text-decoration-color:#2f4a2b;
+  text-underline-offset:3px}
+.bd a:hover{text-decoration-color:currentColor}
+nav{display:flex;flex-wrap:wrap;gap:3px 13px;align-items:baseline;
+  border-bottom:1px solid #1d291b;padding:9px 0;margin-bottom:20px;font-size:12.5px}
+nav a,nav .site{color:#7e8f78}
+nav a.on{color:#a5eba0}
+nav a:hover{color:#a5eba0}
+nav .sp{flex:1;min-width:8px}
+.win{background:#101710;border:1px solid #1d291b;margin:0 0 13px;
+  container-type:inline-size}
+.win>.bar{display:flex;align-items:center;gap:8px;background:#0c130c;
+  border-bottom:1px solid #1d291b;padding:6px 10px}
+.win{scroll-margin-top:16px}
+.win:target{border-color:#4d6a47}
+.win:target>.bar h2,.win:target>.bar b{color:#a5eba0}
+@media (prefers-reduced-motion:no-preference){
+  .win:target{animation:hl 1.6s ease-out}
+  .win:target>.bar{animation:hlbar 1.6s ease-out}
+}
+@keyframes hl{0%{border-color:#a5eba0;box-shadow:0 0 0 3px #a5eba055,0 0 18px #6ec95f66}
+  100%{border-color:#4d6a47;box-shadow:0 0 0 0 transparent}}
+@keyframes hlbar{0%{background:#1f3a1c}100%{background:#0c130c}}
+.win>.bar i{width:7px;height:7px;border-radius:1px;background:#2b3a28;display:block;flex:none}
+.win>.bar b,.win>.bar h2{margin:0 0 0 auto;color:#7e8f78;font-size:11.5px;letter-spacing:.06em;
+  font-weight:400;line-height:inherit}
+.win>.bd{padding:13px 14px 15px}
+.win.hero>.bd{padding:16px 14px 18px;text-align:center}
+h1,h2,h3,h4{font-size:13.5px;font-weight:400;margin:0 0 9px}
+h1{color:#a5eba0}
+p{margin:0 0 9px}
+p:last-child,ul:last-child{margin-bottom:0}
+p.more{margin-top:9px}
+ul{margin:0;padding:0;list-style:none}
+li{padding:6px 0;border-bottom:1px solid #1d291b}
+li:last-child{border-bottom:0}
+li .m{color:#7e8f78;font-size:11.5px;display:block;margin-top:2px}
+.hero .bio{color:#e7f1e2;max-width:62ch;margin:14px auto 0}
+.tag{color:#7e8f78;font-size:11.5px;letter-spacing:.06em}
+.more+.tag{margin-top:18px}
+.foot{border-top:1px solid #1d291b;margin-top:26px;padding-top:12px;
+  color:#7e8f78;font-size:11.5px}
+.cols{display:grid;grid-template-columns:1fr;gap:0 18px}
+.cols li{padding:6px 0;border-bottom:1px solid #1d291b}
+.cols li:last-child{border-bottom:1px solid #1d291b}
+.cols li a{display:flex;justify-content:space-between;gap:10px}
+.cols li a .m{display:inline;margin:0;font-size:11.5px;color:#7e8f78}
+@container (min-width:490px){.cols{grid-template-columns:1fr 1fr}}
+.prose{max-width:72ch}
+.desk>.win.doc{justify-self:center;width:100%;max-width:calc(72ch + 30px)}
+.prose h2,.prose h3,.prose h4{margin:22px 0 9px}
+.prose h2,.case h3{color:#a5eba0}
+.prose h2::before{content:"## ";color:#4d6a47}
+.prose h3::before,.case h4::before{content:"### ";color:#4d6a47}
+.case h3::before{content:"## "}
+.prose>:first-child{margin-top:0}
+.prose ul,.prose ol{margin:0 0 9px;padding-left:2ch}
+.prose ol{padding-left:3.5ch}
+.prose ul{list-style:"- "}
+.prose li{padding:2px 0;border:0}
+.prose img{display:block;max-width:100%;height:auto;margin:4px 0 13px;
+  border:1px solid #1d291b}
+.prose .meta{color:#7e8f78;font-size:11.5px;margin-bottom:16px}
+</style>
+</head>
+<body>
+<div class="grid" aria-hidden="true"></div>
+<div class="wrap">
+<header><nav><span class="site">dustinmontgomery.com</span><span class="sp"></span><a href="/">home</a><a href="/blog/" class="on" aria-current="page">writing</a><a href="/#projects">projects</a><a href="/seo-consulting/">seo consulting</a><a href="/#expert-witness">expert witness</a><a href="/#elsewhere">elsewhere</a></nav></header>
+<main class="desk">
+<div class="win wide doc"><div class="bar"><i></i><i></i><i></i><b>writing</b></div><div class="bd"><article class="prose h-entry"><link class="u-url" href="https://dustinmontgomery.com/blog/seedless-torrents/"><h1 class="p-name">My Billion Dollar Idea (Seedless Torrents) is Dead - A Retrospective</h1><p class="meta"><span class="p-author h-card">Dustin Montgomery</span> &middot; <time class="dt-published" datetime="2025-02">February 2025</time></p>
+<div class="e-content"><h2>What happened?</h2>
+            <img src="what-happened.webp" alt="What Happened?" width="720" height="540" fetchpriority="high" decoding="async">
+            <p>I have had this idea brewing in some form for around 20 years, so I decided I needed to fully explore it. With AI where it is, it was much easier for me to take a stab at it and build a proof of concept.</p>
+            <p>The basic idea was akin to a video game style random world generator, but for pieces of files. This would allow you to place a “seed” into the generator / algorithm and get back the piece of data you put in.</p>
+            <p>One of the best practical use cases I had for this was “seedless” torrents (probably better described as peerless), where you only needed the torrent file, and no peers, to “generate” the data.</p>
+            <p>Ultimately what happened in all my prototypes though is that the “seed” for the data is always larger than the data itself because of the sheer volume of possible byte combinations. I thought there may be ways around this, but I was not able to find any myself. Potentially with the right algorithm it may yet be possible. However with AI not so great at math yet, I don't see advanced algorithm creation within reach any time soon. Even then, there are likely practical use hurdles to overcome.</p>
+            <h2>What did I try?</h2>
+            <img src="what-did-i-try.webp" alt="What did I try?" width="720" height="540" loading="lazy" decoding="async">
+            <p>A lot of me thinking this was possible was inspired by the <a href="https://libraryofbabel.info/">Library of Babel</a>. I started by trying to convert some of the code they have published to work with any piece of data. The code uses a “<a href="https://github.com/librarianofbabel/libraryofbabel.info-algo">combination of a linear congruential generator and a mersenne twister (sort of)</a>”. I quickly found that it is the constraints of what they search for that make it a more feasible task. However I did achieve a working version with data, but the bookmarks (the files that contained the seed to reproduce the file) were double the size of the files being tested. Not so great for a bookmark.</p>
+            <p>I also looked into AES-CTR encryption, Feistel Networks, Hash Function + Counters, Merkel Trees, and more, but my research quickly lead me to keeping the algorithm as simple as possible for troubleshooting. Also not all of those are reversible, which is needed.</p>
+            <p>I eventually landed on a sequential bit generator, and searching with pattern matching. My implementations were successful... but started failing past 8 bits. The need to cover all bit possibilities gets astronomically big, really fast. I also added in “Grey Code Generation” at some point, but I actually don't remember in what version.</p>
+            <p>One of my theories that kept me going was that we could optimize later after a prototype was working. Around halfway through I logged the question, “Can the bookmark that represents the data be compressed more than the data itself?” To which the answer at this point is <strong>no</strong> not with the size of the bookmarks we are dealing with compared the files they represent. This is the main reason this idea is dead (at least for the foreseeable future).</p>
+            <h2>What did I learn?</h2>
+            <img src="what-did-i-learn.webp" alt="What did I learn?" width="720" height="540" loading="lazy" decoding="async">
+            <p><strong>How to work with LLMs to think, as well as produce outcomes.</strong></p>
+            <p>Never trust the LLM when it tells you something is impossible or infeasible. This is much the same approach I suggest to take in real life when a human tells you that. At first I took the LLM too seriously, during the ideation phase. After awhile I saw I was able to apply basic logic to guide the AI to other solutions that allowed me to continue to move forward.</p>
+            <p>Verify the code works the way the AI says it will. Only having a basic understanding of code, I can spot some obvious issues, but I get lost when multiple functions and hundreds of lines come into play. I spent a lot of time troubleshooting with the AI only to realize it was not functioning the way it told me it would. Asking it to explain exactly what each piece of code does in detail was a better use of troubleshooting at times.</p>
+            <p>Sometimes it is better to try and “one-shot” the entire code right away. It is hard to know what you don't know about a project, especially when you don't know the right logic to use or if don't even know better methods exist. However, after you discover those new methods or ideas, it can be better to try and one-shot the idea fresh. For whatever reason I found LLMs sort of get hung up on themselves with a long chat history and just doesn't edit things well. With a fresh start you can edit and go back to the initial prompt many times to see if it can do better with the new method and no chat history.</p>
+            <p><strong>I learned a lot about perseverance.</strong></p>
+            <p>I spent several months on this idea, many early mornings, time in airports and precious down time in the evenings, which is a rare gift with kids. I was dedicated to seeing the idea live or die. I could not have arrived at the conclusion of this project without an intense dedication and curiosity.</p>
+            <p><strong>I protected the idea, but wasted time.</strong></p>
+            <p>If this idea had worked, I think it had the potential to change the data storage industry, at least to some small degree. At most, I reckoned it could be a billion dollar idea. I only shared it with a handful of people, which was difficult considering how excited I was to be working on it. My plan was to get a proof of concept working, file for a patent, provide open source tools and solutions, and then require a license for corporations to generate income.</p>
+            <p>If I had shared more of what I was working on with people smarter than me, they probably could have pointed me in the right direction and filled in my knowledge gaps much more quickly. To be fair, I had shared versions of this idea in the distant past and was met with some healthy skepticism. The hardware limits back then were different, and the interactions caused me to shelve the idea. This relates to not letting people tell you things are impossible, but I am sure there is a balance I could have found between the two with a more structured approach.</p>
+            <p><strong>The best user interfaces provide joy by default.</strong></p>
+            <p>This is just a personal opinion that was reinforced. When giving thought to the interaction a user would have on the command line, I found the practical need to know where the computer was at in the process of finding a match for a seed. I found that showing the user the information it was crunching was much more exciting than simply waiting an unknown amount of time for the command prompt to appear again or a simple percentage display. I am biased since it was me watching an idea come to life, but if not joy, I still think it allows user appreciation for what all a machine is doing on your behalf. A practical middle ground was a progress bar with live statistics.</p>
+<p>If you enjoyed this read, you would probably find <a href="https://www.legittorrents.info/">my retrospective on Legit Torrents</a> even more enjoyable.</p>
+<p>You might also consider signing up for <a href="https://dustin-montgomery.beehiiv.com/subscribe">my newsletter</a> where I plan on writing about more tech related things like this.</p></div></article></div></div>
+</main>
+<footer class="foot">
+<p>No cookies, no trackers, no JavaScript.</p>
+</footer>
+</div>
+</body>
+</html>

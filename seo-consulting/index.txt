@@ -1,0 +1,350 @@
+https://dustinmontgomery.com/seo-consulting/
+
+SEO consulting
+==============
+
+## what this is
+
+I still do some SEO consulting for the right project. I have been
+building websites for over 25 years.
+
+Two of the better results:
+
+- DTC home appliance manufacturer
+  About 0 to 55,000 organic visits a month in roughly a year. Site
+  rebuilt twice for speed, 3 to 4 articles a week.
+
+- Fortune 500 financial company
+  +402,000 visits a month in 9 months. Cannibalization cleanup and
+  NLP-assisted rewrites with subject experts.
+
+## case studies
+
+- DTC eCommerce [1]
+  DTC home appliance manufacturer, 0 to 55,000 organic visits a month
+
+- Fortune 500 company [2]
+  financial company, +402,000 visits a month in 9 months
+
+- Startup [3]
+  niche food product startup, 26 to 79,658 visits a month in 12 months
+
+- Manufacturing [4]
+  transportation equipment manufacturer, +775% traffic in six months
+
+- Internal linking [5]
+  niche site in the outdoor space, +139,000 visits a month
+
+## what I do
+
+- Technical audit
+  I go through the site for anything holding it back in Google, and give
+  your team each problem along with how to fix it.
+
+- Research
+  Where competitors are beating you, and which keywords to go after
+  first, by difficulty, relevance and search volume.
+
+- Content planning
+  A plan for every piece, with the target keyword, what product or
+  service it supports, and when it goes live.
+
+- Promotion
+  Backlink outreach once the content is up, aimed at the keywords that
+  are hardest to win.
+
+- White label
+  For agencies that want the work done under their name.
+
+- General consulting
+  Help working out the roadmap and keeping it on track, even if I am not
+  the one doing the work.
+
+## direct to consumer
+
+Four long pieces written for the DTC work.
+
+- Direct to Consumer SEO [6]
+
+- What is DTC eCommerce? [7]
+
+- Pros and Cons of Selling Direct to Customers [8]
+
+- How Manufacturers Can Successfully Sell Direct to Consumers [9]
+
+## dtc ecommerce
+
+### From 0 to 55,000 organic visits per month.
+
+#### Client
+
+DTC manufacturer in a large home appliance category.
+
+#### Plan
+
+I ran all the digital marketing here, but one of the main goals was of
+course a solid SEO foundation for a DTC eCommerce website within the
+first year. Here’s how it went.
+
+#### Execution
+
+The first hurdle was the website which was in shambles. It was aged and
+you couldn’t even purchase online any more, the functionality had been
+broken and replaced with a message to call in. The traffic was nearly 0.
+
+The company in charge of redesigning had good intentions and the result
+was a nice looking website, but it performed terribly. Load times
+upwards of 10 seconds per page. After working intensely on speeding it
+up I came to the conclusion that it needed redone, again.
+
+With a snappier theme design, paired down plugins, and a few platform
+optimizations, we had a solid website to work with.
+
+It is important to note that even though a solid website delivery took
+months, SEO was still building in the background. I started publishing
+optimized articles targeting the top and bottom of the funnel within a
+few weeks of starting.
+
+Things quickly started picking up pace, and I continued that pace of 3-4
+articles per week for around a year.
+
+Along with that, product and category pages received continuous SEO and
+CRO optimizations.
+
+[image: Organic traffic graph for the DTC eCommerce case study]
+
+#### Results
+
+We more than achieved our 1 year organic traffic targets. Both Organic
+traffic, and most importantly, Sales, continue to climb even further.
+
+## fortune 500 company
+
+### Gained over 402,000 visits per month!
+
+#### Client
+
+Fortune 500 Company in the Financial space
+
+#### Plan
+
+This client had a well established blog already bringing in decent
+traffic. But they knew they could do better.
+
+They needed to:
+
+- Clean up competing content (often referred to as content
+  cannibalization) for better rankings on those topics
+
+- Optimize existing content by rewriting it with SEO tool assistance, so
+  that it can rank higher and bring more traffic
+
+#### Execution
+
+To clean up competing content I combed through their website data and
+found keywords that had more than one page ranking for the same keyword
+at different times. After reviewing the pages to be sure they were
+indeed covering the same topics in a similar way, I had them rewritten
+and combined into 1 article, so they no longer competed.
+
+To optimize existing content, I found articles that were on ranking on
+page one in positions 4-10 for their target keyword, ran an analysis on
+them in a SEO tool that uses Natural Language Processing (NLP), and had
+them rewritten accordingly with a subject matter expert. The writers
+expertise combined with my SEO strategy and NLP analysis moved the
+needle on almost every article we optimized.
+
+[image: Traffic graph for the Fortune 500 case study]
+
+#### Results
+
+In 9 months time their website increased by 402,000 visits per month!
+
+## startup
+
+### From 0 to 79,658 visits in 12 months!
+
+#### Client
+
+Niche Food Product Startup
+
+#### Plan
+
+This client had little to no existing content outside of their product
+pages. They needed to increase organic traffic for topics that were
+relevant to their potential customers.
+
+The plan was straight forward – they needed content that:
+
+- Reinforced their products as a solution
+
+- Educated potential customers
+
+- Stayed true to their brand voice and identity
+
+#### Execution
+
+Their website was built on Shopify, so the SEO basics were covered
+pretty well and no Technical SEO adjustments needed to be made.
+
+After researching their food category I created a content plan based on
+a mixture of keywords that included:
+
+- High purchase intent
+
+- Customer pain points
+
+- Entertaining opinions on their product type
+
+- Low ranking difficultly to see quicker results
+
+With the content plan approved by the client, 2 pieces of content were
+produced each week for 12 months.
+
+[image: Traffic graph for the startup case study]
+
+#### Results
+
+Starting at 26 visits the month we started working together, they had
+79,658 visits 12 months later!
+
+## manufacturing
+
+### Six months to a 775% increase in traffic!
+
+#### Client
+
+Transportation Equipment Manufacturer
+
+#### Plan
+
+When I started working with this client they had a custom built website,
+a grouping of product pages with little or no description, and a few
+random category pages. They were successful in their market, but not
+doing as well online for B2C searches.
+
+We needed to audit their website code to be sure Google was parsing it
+correctly, organize their products in a user friendly and logical way,
+build industry relevant links, and start producing relevant content.
+
+#### Execution
+
+Their website was custom built in Ruby on Rails and lacked some meta
+data code and schema markup that are helpful for getting Google to parse
+and categorize a web page correctly. I worked directly with their
+developer to implement these changes to the code and understand their
+custom content management system. From their I was able to make the
+necessary changes to page elements, optimizing title tags, meta
+descriptions, and schema markup – all referred to as Technical SEO.
+
+Once the technical SEO changes were made, I started digging into product
+specific changes. Many products had little or no product description on
+the page which is a major issue if you want a search engine to
+understand what a product is about and present it to a potential
+customer in the search results. I worked closely with the team to get
+accurate product details, descriptions, and product photos added to each
+page, drawing out the major differentiators and positioning the product
+description to not only help SEO, but also to help sell the product.
+
+While working through the products and categories one by one, I also
+started work on the blog / news section of their website. Historically
+this part of their site contained short snippets of news relevant to
+their industry. Important information, but not something that would come
+up in Google’s search results. I started creating content that targeted
+potential customers of their products and the issues they would have
+prior to searching for the products. This allowed them to capture
+traffic before they knew the solution to their problem, so they were
+already on the site when they realized it. This allowed them to position
+themselves for an easy sale.
+
+In addition to capturing upstream traffic, this reinforces the topical
+authority of the website, showing Google that you are an expert resource
+for the product and boosting your main product page in the search
+results. This is a large part of modern SEO.
+
+Many industry specific backlinks were acquired to the site through out
+this time as well. These were often directed toward the newly created
+blog content that was created to serve as a “link magnet” by providing
+interesting tips or facts about the industry. A strategy that positioned
+them as leader to customers and peers.
+
+[image: Traffic graph for the manufacturing case study]
+
+#### Results
+
+All of these changes were made in about 6 months time resulting in a
+775% increase in traffic.
+
+Update: Since my time with this client they have continued with my
+suggested content creation road map and are now at a traffic increase of
+2,283%!
+
+## internal linking
+
+### Gained an additional 139,000 visits per month!
+
+#### Client
+
+Niche site in the outdoor space.
+
+#### Plan
+
+The website had a decent mix of affiliate and informational content and
+was in the process of expanding its categories to include more topics.
+
+One of the biggest problems here was that multiple owners and strategies
+over time had caused it to not be cohesive and organized. The first
+steps were clear:
+
+- Remove or combine duplicate topics
+
+- Add internal linking to and from relevant pages to create clusters of
+  content
+
+- Identify pillar articles for each topic
+
+- Be sure to use varied keyword rich anchor text for internal links
+
+With these changes in place Google would be able to better “understand”
+our topics and the relation of the articles between each other. We also
+would be sure to put our most valuable articles into focus as the
+“pillar” piece of content for a topic cluster.
+
+#### Execution
+
+While simple in theory, thousands of pages needed addressed.
+Spreadsheets were used to organize the work and a lot of time was taken
+to get the plan done right.
+
+To identify what keywords to target with the anchor text I examined what
+was already ranking well or close to ranking well via Ahrefs.
+
+It took about 2 months to fully execute the plan.
+
+[image: Traffic graph for the internal linking case study]
+
+#### Results
+
+In month 3 the traffic took a clear jump. We started at 252,756 visits
+in month 1 and ended month 3 with 391,904 visits – a 139,148 visit
+increase!
+
+This laid the foundation and structure for future content to be put into
+in order thrive and drive even more traffic growth.
+
+## contact
+
+Email hi@dustinmontgomery.com [10].
+
+Links
+-----
+[1] https://dustinmontgomery.com/seo-consulting/#dtc-ecommerce
+[2] https://dustinmontgomery.com/seo-consulting/#fortune-500
+[3] https://dustinmontgomery.com/seo-consulting/#startup
+[4] https://dustinmontgomery.com/seo-consulting/#manufacturing
+[5] https://dustinmontgomery.com/seo-consulting/#internal-linking
+[6] https://dustinmontgomery.com/seo-consulting/direct-to-consumer-seo/
+[7] https://dustinmontgomery.com/seo-consulting/what-is-dtc-ecommerce/
+[8] https://dustinmontgomery.com/seo-consulting/pros-and-cons-of-selling-direct-to-customers/
+[9] https://dustinmontgomery.com/seo-consulting/manufacturers-selling-direct/
+[10] mailto:hi@dustinmontgomery.com

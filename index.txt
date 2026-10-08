@@ -1,0 +1,94 @@
+https://dustinmontgomery.com/
+
+████████▄  ███    █▄     ▄████████     ███      ▄█  ███▄▄▄▄
+███   ▀███ ███    ███   ███    ███ ▀█████████▄ ███  ███▀▀▀██▄
+███    ███ ███    ███   ███    █▀     ▀███▀▀██ ███▌ ███   ███
+███    ███ ███    ███   ███            ███   ▀ ███▌ ███   ███
+███    ███ ███    ███ ▀███████████     ███     ███▌ ███   ███
+███    ███ ███    ███          ███     ███     ███  ███   ███
+███   ▄███ ███    ███    ▄█    ███     ███     ███  ███   ███
+████████▀  ████████▀   ▄████████▀     ▄████▀   █▀    ▀█   █▀
+
+Dustin Montgomery
+=================
+
+A Christ follower who's been building websites for 25+ years.
+Still excited about technology.
+
+## writing
+
+Notes on what I built and what broke.
+
+- I made a thing that haunts me. [1]
+  Death comes for us all eventually.
+
+- Seedless Torrents [2]
+  20 years of an idea, built with AI, and why it never worked past 8
+  bits
+
+All writing → [3]
+
+## projects
+
+ClipHuman
+
+One 5 minute interview becomes a week of publish ready vertical clips.
+
+cliphuman.com → [4]
+
+numberyour.day
+
+A free visual tool to help you number your days, in light of Psalm
+90:12.
+
+numberyour.day → [5]
+
+## seo consulting
+
+I still do some SEO consulting for the right project. One site went from
+nearly 0 to 55,000 organic visits a month in about a year, and another
+picked up 402,000 more visits a month in 9 months.
+
+SEO consulting → [6]
+
+## expert witness
+
+Expert witness work for attorneys handling cases involving torrenting
+technology and copyright claims, from 17 years of operating the largest
+fully legal torrent tracker.
+
+Full details → [7]
+
+## elsewhere
+
+Other places I am. Get on the newsletter for infrequent updates.
+
+- X
+  @DustinMontgomer [8]
+
+- linkedin
+  dustinmontgomery [9]
+
+- newsletter
+  infrequent [10]
+
+- legittorrents.info
+  2005-2023 [11]
+
+- email
+  hi@dustinmontgomery.com [12]
+
+Links
+-----
+[1] https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
+[2] https://dustinmontgomery.com/blog/seedless-torrents/
+[3] https://dustinmontgomery.com/blog/
+[4] https://cliphuman.com/
+[5] https://numberyour.day
+[6] https://dustinmontgomery.com/seo-consulting/
+[7] https://www.legittorrents.info/torrent-expert-witness.html
+[8] https://x.com/DustinMontgomer
+[9] https://www.linkedin.com/in/dustinmontgomery
+[10] https://dustin-montgomery.beehiiv.com/subscribe
+[11] https://www.legittorrents.info/
+[12] mailto:hi@dustinmontgomery.com

@@ -1,0 +1,94 @@
+https://dustinmontgomery.com/blog/note-taking-applications/
+
+Note Taking Applications
+========================
+
+Dustin Montgomery · December 24, 2019
+
+After going through Tiago Forte’s Building a Second Brain [1] earlier
+this year, I have been on a quest to get my notes in order, and to start
+using them more. While Tiago uses Evernote in the course, I was already
+using Joplin to start taking some notes on SEO related topics (and I
+like my software free (as in freedom)).
+
+## Joplin
+
+I decided I did not like Joplin [2] completely due to the way it names
+files, all the extra cruft it needs to append to the documents for
+organization, and the refusal of developers to allow the mobile
+application to ignore certificate warnings, while the desktop version
+could (yes, I know, I should have a valid cert for my internal servers
+anyway).
+
+## NextCloud
+
+Right now I am using the default notes app from Nextcloud [3]. It is
+certainly not great for progressive summarization or for refinding
+information. It is very basic, but is available cross platform and gets
+the job done.
+
+Edit: I found that this Firefox plugin [4] is a really good “web
+clipper”.
+
+## MindForger
+
+I am loving the way MindForger [5] works, specifically the Associations
+box in the bottom left of the layout which constantly refreshes bringing
+you documents that are related to what you are currently writing about.
+
+However, it is a bit buggy and as of right now I cannot view the entire
+document at once, only sections divided by headings. It only has one
+part time developer from what I can tell, so who knows how long it will
+be maintained. Probably not ideal in the long run.
+
+## Emacs
+
+I am looking toward Emacs as the “super haxor” solution. It has been
+around since 1985 and had releases this year, so I am confident it will
+stand the test of time. It is amazingly configurable, to a fault really.
+You can do so much with it that it can be hard to get started and find a
+solution to stick with. Something DIY guys like me can spend hours on.
+
+In fact, I have already spent hours researching how to make it function
+just like MindForger. The DOOM [6] flavor of Emacs seems like a great
+path forward for looks, ease of use, and a modern community of users.
+The only missing piece is the Associations box, which is very useful for
+writing as thinking.
+
+Associates Box Example: Say for instance I start taking notes on a
+WordPress plugin, The Associations box might bring up my notes on core
+WordPress development, automatically. For me this is helpful because I
+don’t remember half the stuff I take notes on! This is also helpful for
+when you have a topic you didn’t know was relevant, say in the same
+instance it brings up my notes on SEO plugins for WordPress, which may
+be a direction I had not considered going in my notes.
+
+### The Rememberance Agent
+
+So far my research has landed me with a plugin/addon/extension/module
+called: The Rememberance Agent. It was first written back in 1996 and
+last updated in 2004. It does compile with a few tweaks (see the 2
+reddit links below).
+
+I believe now that I have compiled it and have it working that I can
+tweak the styles and start using my new ultimate haxor note taking
+solution… with another large investment of time to learn to use Emacs.
+
+Resources:
+https://web.archive.org/web/20140710072047/http://www.remem.org/
+https://www.emacswiki.org/emacs/RemembranceAgents
+https://www.reddit.com/r/emacs/comments/aq3cia/modern_implementation_of_remembrance_agents/
+https://www.reddit.com/r/emacs/comments/8tq452/is_there_something_like_rememberancemode_for/
+https://github.com/doomemacs/core/issues/2237
+
+Similar plugin:
+https://github.com/alphapapa/org-rifle
+
+Links
+-----
+[1] https://www.buildingasecondbrain.com/
+[2] https://joplinapp.org/
+[3] https://apps.nextcloud.com/apps/notes
+[4] https://addons.mozilla.org/en-US/firefox/addon/copy-page-title-and-url/
+[5] https://www.mindforger.com/
+[6] https://github.com/hlissner/doom-emacs
