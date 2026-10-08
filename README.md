@@ -37,8 +37,25 @@ Requirements: Python 3, `ffmpeg` (WebP images) and Playwright's headless Chromiu
 - `src/pages/` - the first hand-written drafts of the home, writing, consulting and
   404 pages; `build.py` reworks them into the current pages.
 - `src/wordpress/` - the pages and images migrated from the old WordPress site.
-- `cloudflare/worker.js` - the Cloudflare Worker that sits in front of GitHub Pages
-  (text twins for terminal clients, old-URL redirects, headers).
+- `cloudflare/worker.js` - the Cloudflare Worker that sits in front of GitHub Pages:
+  old-URL redirects (301) and 410s, plain-text/colour twins for terminal clients,
+  the Speculation-Rules header, and image caching.
+
+## Deploying the Worker
+
+Script name `dustinmontgomery-com` on the Cloudflare account; route
+`dustinmontgomery.com/*` on the `dustinmontgomery.com` zone. Upload with the API
+(token in `~/.config/cloudflare/token`):
+
+```sh
+curl -X PUT -H "Authorization: Bearer $(cat ~/.config/cloudflare/token)" \
+  "https://api.cloudflare.com/client/v4/accounts/$(cat ~/.config/cloudflare/account_id)/workers/scripts/dustinmontgomery-com" \
+  -F 'metadata={"main_module":"worker.js","compatibility_date":"2026-10-01"};type=application/json' \
+  -F 'worker.js=@cloudflare/worker.js;type=application/javascript+module'
+```
+
+Attach the route only after GitHub Pages serves the `site` branch: otherwise the
+redirects would send visitors from the old site to pages that don't exist yet.
 
 The URL migration plan and the Cloudflare cutover steps are in
 `dm-reference/redirect-map.md` (outside this repo).
