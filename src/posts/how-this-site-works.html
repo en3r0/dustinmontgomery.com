@@ -10,6 +10,8 @@
   color:transparent;-webkit-text-fill-color:transparent;
 }</code></pre>
 <p>That works, but the browser antialiases the edge of every character, so thin dark seams show up between blocks that are supposed to touch. On a big header it ends up looking like a grid.</p>
+<img src="seams-before.webp" alt="Close-up of the top of the D in the header with the gradient clip: thin dark vertical lines run down between every column of blocks, with fainter horizontal lines between rows." width="585" height="390" loading="lazy" decoding="async">
+<p class="meta">Before: the gradient clipped to the text, enlarged 3x. Every dark line is a seam between two characters.</p>
 <p>A trick that fixes the seams is stacking a few text shadows with no blur and no offset. Each one paints the glyph edges again, and after four of them the half transparent edge pixels are close to solid:</p>
 <pre><code>text-shadow:0 0 0 #7ddc6c,0 0 0 #7ddc6c,0 0 0 #7ddc6c,0 0 0 #7ddc6c;</code></pre>
 <p>The catch is that a shadow is a single colour, and it paints on top of a clipped background, so you lose the gradient. The fix was to do the two jobs separately. The text is drawn solid in the lightest colour of the gradient with the four shadows, which closes the seams, and then a pseudo-element lays the gradient over it with <code>mix-blend-mode:darken</code>:</p>
@@ -25,6 +27,8 @@ pre.art::after{
   mix-blend-mode:darken;
 }</code></pre>
 <p>Darken keeps the darker of the two colours, one channel at a time. Every colour in the gradient is darker than <code>#dcfcd2</code>, so on top of the text you get exactly the gradient. Every colour in the gradient is also lighter than the panel behind it (<code>#101710</code>), so the background comes through untouched.</p>
+<img src="seams-after.webp" alt="The same close-up with the shadow hack: the blocks are solid, with no lines between them, and the same green stripes." width="585" height="390" loading="lazy" decoding="async">
+<p class="meta">After: solid text plus four shadows, with the gradient blended on top. Same crop, same 3x.</p>
 <p>A few things will break it. The background has to be darker than the darkest stop. Nothing between the text and the panel can start its own layer (a <code>filter</code>, <code>opacity</code> below 1 or <code>isolation:isolate</code>), or the blend has nothing to blend with and the gradient paints as a solid block. I also started with white text, and the light stripes got grey hairlines on their edges, because a white edge pixel mixed with the dark background comes out grey. Drawing the text in the lightest gradient colour keeps those edges green. The real version also stretches the overlay .3em past the box, since the characters hang a little outside their line box and the bottom row was peeking out white.</p>
 <h2>Showing where an anchor link lands</h2>
 <p>A few of the nav links (projects, expert witness, elsewhere) jump to a panel on the home page. The page is short, so on a desktop the scroll barely moves and it isn't obvious anything happened. CSS can tell which element the <code>#anchor</code> in the URL points to with <code>:target</code>, so that panel gets a quick green flash and then keeps a quiet highlight:</p>

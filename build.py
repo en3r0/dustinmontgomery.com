@@ -342,7 +342,8 @@ CODE_CSS = (
     '\n.prose pre{overflow-x:auto;background:#0c130c;border:1px solid #1d291b;'
     'padding:10px 12px;margin:0 0 13px;font-size:12px;line-height:1.5}'
     '\n.prose code{color:#cfe8c8}'
-    '\n.prose p code{background:#0c130c;border:1px solid #1d291b;padding:0 3px}\n')
+    '\n.prose p code{background:#0c130c;border:1px solid #1d291b;padding:0 3px}'
+    '\n.prose img[src^="seams-"]{image-rendering:pixelated}\n')
 wr(f'{SITE}/blog/how-this-site-works/index.html',
    article('/blog/how-this-site-works/', WORKS[0], '2026-10-08',
            rd(f'{REPO}/src/posts/how-this-site-works.html').strip(), WORKS[1], extra_css=CODE_CSS))
@@ -774,6 +775,40 @@ pre.art-mont{{font-size:13.278px}}
                         '--force-device-scale-factor=1', f'--screenshot={SITE}/og.png', f'file://{td}/og.html'],
                        check=True, capture_output=True)
 
+# Before/after crops of the header for "How This Site Works": the plain gradient
+# clip (seams) and the shadow hack (solid), rendered at 1x and enlarged 3x with hard
+# pixels so the 1px seams are visible.
+def render_seams():
+    home = rd(f'{SITE}/index.html')
+    dust = re.search(r'(<pre class="art art-dust"[^>]*>.*?</pre>)', home, re.S).group(1)
+    grad = re.search(r'background:\s*linear-gradient\(#1d3718,#1d3718\)[^;]*?,\s*(linear-gradient\(#dcfcd2[^)]*\))', ART_CSS, re.S).group(1)
+    base = ('html,body{margin:0;background:#101710}.wrap{padding:14px}'
+            'pre.art{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;line-height:1;'
+            'white-space:pre;margin:0;display:block;width:fit-content;font-size:28.818px}')
+    variants = {
+        'before': base + 'pre.art{background-image:' + grad + ';-webkit-background-clip:text;'
+                  'background-clip:text;color:transparent;-webkit-text-fill-color:transparent}',
+        'after': base + ART_CSS + 'pre.art-dust{font-size:28.818px;margin:0}',
+    }
+    out = f'{SITE}/blog/how-this-site-works'
+    with tempfile.TemporaryDirectory() as td:
+        for name, css in variants.items():
+            open(f'{td}/{name}.html', 'w').write(
+                f'<!doctype html><meta charset="utf-8"><style>{css}</style><div class="wrap">{dust}</div>')
+            subprocess.run([CHROME, '--no-sandbox', '--hide-scrollbars', '--window-size=560,300',
+                            '--force-device-scale-factor=1', f'--screenshot={td}/{name}.png',
+                            f'file://{td}/{name}.html'], check=True, capture_output=True)
+            gray = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{td}/{name}.png', '-vf', 'format=gray',
+                                   '-f', 'rawvideo', '-'], capture_output=True, check=True).stdout
+            w, h = 560, 300
+            top = next(y for y in range(h) if max(gray[y * w:(y + 1) * w]) > 150)
+            left = next(x for x in range(w) if max(gray[y * w + x] for y in range(h)) > 150)
+            # 195x130 at 3x = 585x390, the width of the article column
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f'{td}/{name}.png', '-vf',
+                            f'crop=195:130:{left - 4}:{top - 4},scale=iw*3:ih*3:flags=neighbor',
+                            '-c:v', 'libwebp', '-lossless', '1', '-compression_level', '6',
+                            f'{out}/seams-{name}.webp'], check=True)
+
 wr(f'{SITE}/CNAME', 'dustinmontgomery.com\n')
 
 # GitHub Pages: serve files as they are, never run Jekyll
@@ -794,4 +829,5 @@ assert png[16:24] == struct.pack('>II', 32, 32), 'favicon render is not 32x32'
 open(f'{SITE}/favicon.ico', 'wb').write(
     struct.pack('<HHH', 0, 1, 1) + struct.pack('<BBBBHHII', 32, 32, 0, 0, 1, 32, len(png), 22) + png)
 render_og()
+render_seams()
 print('ok')
