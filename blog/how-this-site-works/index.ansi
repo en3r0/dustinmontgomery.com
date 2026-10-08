@@ -6,18 +6,18 @@
 Dustin Montgomery · October 8, 2026
 
 I moved this site off WordPress and rebuilt it as plain HTML, working
-with AI the whole way through. I wanted something small and fast that
-also does a few fun things a WordPress site never could. This post goes
-through the parts that are worth borrowing, with the code.
+with AI the whole way through. I wanted something small and lightning
+fast. I also wanted some sweet retro vibes. This post goes through the
+parts that are worth borrowing, with the code.
 
 [38;2;165;235;160m## The rules[0m
 
 There are no cookies, no trackers and no JavaScript on any page. The
 home page is one HTML file under 14 KB, with the CSS inline. That number
-comes from how a new connection starts: the server can usually only send
-about 14 KB in the first round trip (10 TCP packets of roughly 1,460
-bytes each), so a page that fits in that shows up without waiting on a
-second round trip.
+matters because of how a new connection starts: the server can usually
+only send about 14 KB in the first round trip (10 TCP packets of roughly
+1,460 bytes each), so a page that fits in that shows up without waiting
+on a second round trip. Lightning.
 
 [38;2;165;235;160m## The ASCII art shadow hack[0m
 
