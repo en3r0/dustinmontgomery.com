@@ -32,14 +32,17 @@ art_css = style[style.index('.artband'):]          # the hero art rules (shadow 
 # the profile photo over the banner (LinkedIn: bottom-left quarter; X: bottom-left).
 BANNERS = {
     'linkedin-banner': (1584, 396, 25, 'right:56px;top:50%;transform:translateY(-50%)'),
-    'x-header':        (1500, 500, 27, 'left:62%;top:46%;transform:translate(-50%,-50%)'),
+    'x-header':        (1500, 500, 30, 'left:50%;top:50%;transform:translate(-50%,-50%)'),
 }
 
 for name, (w, h, px, place) in BANNERS.items():
+    # The overlay reaches .6em past the text; it must stay inside the panel, because
+    # outside it there is nothing to blend with and it shows as a light line.
+    pad = max(16, round(px * .6) + 3)
     page = f"""<!doctype html><meta charset="utf-8"><style>
 html,body{{margin:0;width:{w}px;height:{h}px;overflow:hidden;background:#0a0e0a}}
 body{{background-image:radial-gradient(#132013 1.5px,transparent 1.5px);background-size:20px 20px}}
-.art-box{{position:absolute;{place};background:#101710;border:1px solid #1d291b;padding:16px 22px}}
+.art-box{{position:absolute;{place};background:#101710;border:1px solid #1d291b;padding:{pad}px {pad + 6}px}}
 {art_css}
 /* The R's tail crosses the bottom of the text box. Where the gradient ends and the
    dark fill below it starts, rounding can leave a 1px row covered by neither, and the
