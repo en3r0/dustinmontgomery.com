@@ -41,6 +41,13 @@ html,body{{margin:0;width:{w}px;height:{h}px;overflow:hidden;background:#0a0e0a}
 body{{background-image:radial-gradient(#132013 1.5px,transparent 1.5px);background-size:20px 20px}}
 .art-box{{position:absolute;{place};background:#101710;border:1px solid #1d291b;padding:16px 22px}}
 {art_css}
+/* The R's tail crosses the bottom of the text box. Where the gradient ends and the
+   dark fill below it starts, rounding can leave a 1px row covered by neither, and the
+   overlay's light base colour showed through as a line under the R. Overlap the dark
+   fill 2px into the gradient's (equally dark) end so no gap can open. */
+pre.art::after{{inset:-.6em;background:linear-gradient(#1d3718,#1d3718) 0 100%/100% calc(.6em + 2px) no-repeat,
+  linear-gradient(#dcfcd2 0%,#b4f1a6 26%,#84d876 27%,#6ec95f 50%,#3f7a35 51%,#33632a 76%,#27491f 77%,#1d3718 100%)
+  0 .6em/100% calc(100% - 1.2em) no-repeat,#dcfcd2}}
 pre.art-dust{{font-size:{px}px}}
 pre.art-mont{{font-size:{px * 14.172 / 28.818:.3f}px;margin-top:{px * .45:.1f}px}}
 </style><div class="art-box">{art}</div>"""
