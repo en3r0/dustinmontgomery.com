@@ -639,10 +639,12 @@ wr(f'{SITE}/robots.txt', f'User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xm
 # 16x16 pixel D, same stripes as the hero art
 D = ['11110', '10001', '10001', '10001', '10001', '10001', '11110']
 stripes = ['#dcfcd2', '#b4f1a6', '#84d876', '#6ec95f', '#3f7a35', '#33632a', '#27491f']
-rects = ''.join(f'<rect x="{3 + 2 * x}" y="{1 + 2 * y}" width="2" height="2" fill="{stripes[y]}"/>'
-                for y, row in enumerate(D) for x, c in enumerate(row) if c == '1')
-wr(f'{SITE}/favicon.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">'
-   f'<rect width="16" height="16" fill="#0a0e0a"/>{rects}</svg>\n')
+# one 2-unit-wide stroke per row, drawn through each run of 1s
+rows = ''.join('<path stroke="{}" d="{}"/>'.format(stripes[y], ''.join(
+                   f'M{3 + 2 * m.start()} {2 + 2 * y}h{2 * len(m.group())}' for m in re.finditer('1+', row)))
+               for y, row in enumerate(D))
+wr(f'{SITE}/favicon.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="2">'
+   f'<path fill="#0a0e0a" d="M0 0h16v16H0z"/>{rows}</svg>\n')
 # Plain-text twin of every page (index.txt next to index.html), for curl, Lynx and
 # friends. Built from the finished HTML so it never drifts from the page.
 from urllib.parse import urljoin
