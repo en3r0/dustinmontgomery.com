@@ -90,6 +90,43 @@ colour keeps those edges green. The real version also stretches the
 overlay .3em past the box, since the characters hang a little outside
 their line box and the bottom row was peeking out white.
 
+## A font with five characters in it
+
+After launch the header still fell apart on two screens. Firefox on
+Android sheared it sideways, with every row slipping a different amount
+and white blocks hanging past the panel. Safari on a Mac drew two white
+lines under the R in MONTGOMERY.
+
+Both came down to the font. The art asked for the usual monospace stack,
+and Android's monospace font (Droid Sans Mono) has no block characters
+at all. The browser borrows them from another font where a block is a
+full 1em wide, while the spaces stay 0.6em, so each row stretches by
+however many blocks it has. On the Mac the blocks hang below the bottom
+of the `<pre>`, and Safari seems to only blend inside the box, however
+far the overlay reaches, so the bit poking out shows the raw text
+colour. Chromium does the same when it takes a screenshot from the
+command line.
+
+The fix is a font with only five characters: a space and `█ ▀ ▄ ▌`, each
+0.6em wide and exactly one line tall. A short Python script draws them
+as plain rectangles with fontTools, and the build embeds the result in
+the CSS as a data URI, so the page is still one file:
+
+    @font-face{font-family:art;src:url(data:font/woff2;base64,d09GMgABAAAAAAFEAAoAAAAA…)}
+    pre.art{font-family:art,monospace;line-height:1}
+
+The whole font is 324 bytes, 432 once it is base64 encoded, and the home
+page still fits in the first round trip. Every browser now draws the art
+from the same cells.
+
+One catch: if each block stops exactly at the edge of its cell, the
+seams come back, because the browser antialiases both edges where two
+blocks meet. So each block reaches a little into its neighbours, .03em
+sideways and .06em up and down. The edges that are part of a letter's
+shape, like the middle of `▀`, stay exact. That overlap pokes out of the
+box too, so MONTGOMERY gets `padding-bottom:.06em` to keep its bottom
+row inside, where the blend happens.
+
 ## Showing where an anchor link lands
 
 A few of the nav links (projects, expert witness, elsewhere) jump to a
