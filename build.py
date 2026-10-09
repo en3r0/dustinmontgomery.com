@@ -128,23 +128,23 @@ pre.art{font-family:art,monospace;
    seams, and ::after lays the gradient on with mix-blend-mode:darken (per-channel
    min). #dcfcd2 is >= every stop and every stop is >= the #101710 card, so glyphs
    take the exact gradient and the card shows through untouched. text-align:left
-   because the hero centers text and the art's lines carry no trailing spaces. Nothing between
-   here and the card may isolate (filter, opacity, isolation), or the overlay
-   paints as a solid block. The art font's blocks overhang their cell by .06em so
-   rows overlap. Some renderers (Chromium's screenshot path, likely Safari) only
-   blend inside the box, so MONTGOMERY's bottom padding keeps its last row's
-   overhang in it (DUSTIN's last row is blank, and ink above a box is #dcfcd2
-   anyway). The overlay still reaches .3em past the box for the renderers that
-   blend outside it; the gradient stays sized to the box. */
+   because the hero centers text and the art's lines carry no trailing spaces.
+   Nothing between here and the card may isolate (filter, opacity, isolation), or
+   the overlay paints as a solid block. The art font's blocks overhang their cell
+   by .06em so rows overlap, so the overlay reaches .3em past the box; the gradient
+   stays sized to the box and a #1d3718 band fills below it. The band reaches 2px
+   up into the gradient's (same-coloured) end: two layers meeting at one edge leave
+   a part-covered pixel row when the edge falls between pixels, and #dcfcd2 showed
+   through it as light lines under the R (Safari, Chromium at some widths). */
 pre.art::after{content:"";position:absolute;inset:-.3em;pointer-events:none;
   background:
-    linear-gradient(#1d3718,#1d3718) 0 100%/100% .3em no-repeat,
+    linear-gradient(#1d3718,#1d3718) 0 100%/100% calc(.3em + 2px) no-repeat,
     linear-gradient(#dcfcd2 0%,#b4f1a6 26%,#84d876 27%,#6ec95f 50%,#3f7a35 51%,
       #33632a 76%,#27491f 77%,#1d3718 100%) 0 .3em/100% calc(100% - .6em) no-repeat,
     #dcfcd2;
   mix-blend-mode:darken}
 pre.art-dust{font-size:min(2.0013vw,28.818px)}
-pre.art-mont{font-size:min(0.9842vw,14.172px);padding-bottom:.06em}
+pre.art-mont{font-size:min(0.9842vw,14.172px)}
 """
 
 PREFETCH = ['/', '/blog/', '/seo-consulting/']
