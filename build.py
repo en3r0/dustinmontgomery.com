@@ -2,7 +2,7 @@
 """Generator for dustinmontgomery.com: shared head/nav/footer/CSS on every page,
 the WordPress articles and case studies migrated from src/wordpress, and the
 plain-text and colour twins. Run `python3 build.py`; see README.md."""
-import re, html, os, subprocess
+import re, html, os, subprocess, base64
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 # built site: a checkout of the `site` branch (what GitHub Pages serves)
@@ -113,10 +113,13 @@ li .m{color:#7e8f78;font-size:11.5px;display:block;margin-top:2px}
 .prose .meta{color:#7e8f78;font-size:11.5px;margin-bottom:16px}
 """
 
-ART_CSS = r"""
+# The art's 5 glyphs come from an embedded font (src/art-font.py explains why).
+ART_FONT = ('@font-face{font-family:art;src:url(data:font/woff2;base64,'
+            + base64.b64encode(open(f'{REPO}/src/art-font.woff2', 'rb').read()).decode() + ')}')
+ART_CSS = ART_FONT + r"""
 .artband{max-width:1058px;margin:0 auto}
-pre.art{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  line-height:1;white-space:pre;margin:0 auto;display:block;
+pre.art{font-family:art,monospace;
+  line-height:1;white-space:pre;text-align:left;margin:0 auto;display:block;
   width:fit-content;max-width:100%;position:relative;
   color:#dcfcd2;text-shadow:0 0 0 #dcfcd2,0 0 0 #dcfcd2,0 0 0 #dcfcd2,0 0 0 #dcfcd2}
 /* background-clip:text leaves hairline seams between block glyphs, and text-shadow
@@ -124,10 +127,15 @@ pre.art{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
    drawn solid in the lightest stop with 4 stacked 0-blur shadows, which closes the
    seams, and ::after lays the gradient on with mix-blend-mode:darken (per-channel
    min). #dcfcd2 is >= every stop and every stop is >= the #101710 card, so glyphs
-   take the exact gradient and the card shows through untouched. Nothing between
+   take the exact gradient and the card shows through untouched. text-align:left
+   because the hero centers text and the art's lines carry no trailing spaces. Nothing between
    here and the card may isolate (filter, opacity, isolation), or the overlay
-   paints as a solid block. Glyphs overhang the line box slightly, so the overlay
-   reaches .3em past it; the gradient stays sized to the box. */
+   paints as a solid block. The art font's blocks overhang their cell by .06em so
+   rows overlap. Some renderers (Chromium's screenshot path, likely Safari) only
+   blend inside the box, so MONTGOMERY's bottom padding keeps its last row's
+   overhang in it (DUSTIN's last row is blank, and ink above a box is #dcfcd2
+   anyway). The overlay still reaches .3em past the box for the renderers that
+   blend outside it; the gradient stays sized to the box. */
 pre.art::after{content:"";position:absolute;inset:-.3em;pointer-events:none;
   background:
     linear-gradient(#1d3718,#1d3718) 0 100%/100% .3em no-repeat,
@@ -136,7 +144,7 @@ pre.art::after{content:"";position:absolute;inset:-.3em;pointer-events:none;
     #dcfcd2;
   mix-blend-mode:darken}
 pre.art-dust{font-size:min(2.0013vw,28.818px)}
-pre.art-mont{font-size:min(0.9842vw,14.172px)}
+pre.art-mont{font-size:min(0.9842vw,14.172px);padding-bottom:.06em}
 """
 
 PREFETCH = ['/', '/blog/', '/seo-consulting/']
@@ -155,8 +163,10 @@ def headings(body):
                    for p in parts)
 
 def strip_css_comments(css):
-    """The CSS comments document the generator; visitors don't need them."""
-    return re.sub(r'/\*.*?\*/\n?', '', css, flags=re.S)
+    """The CSS comments and line breaks are for reading the generator; visitors don't
+    need them. Every line break in the CSS follows a { } ; , or :, so dropping it and
+    the indent after it changes nothing."""
+    return re.sub(r'\n\s*', '', re.sub(r'/\*.*?\*/', '', css, flags=re.S))
 
 def page(path, title, desc, body, on=None, extra_css='', og_type='website', main_attrs='',
          home=False, canonical=True, noindex=False, extra_head='', main_class=''):
@@ -164,7 +174,7 @@ def page(path, title, desc, body, on=None, extra_css='', og_type='website', main
     links = ''.join(f'<a href="{h}"{" class=\"on\" aria-current=\"page\"" if h == on else ""}>{t}</a>'
                     for h, t in NAV)
     size = (' This page is one file, under 14 KB.' if home else '')
-    e = html.escape
+    e = lambda s: html.escape(s, quote=False).replace('"', '&quot;')  # values sit in "..."
     # the top-level pages are tiny and every nav link lands on one of them, so
     # fetch them at idle (anchors like /#projects resolve to /)
     prefetch = ''.join(f'<link rel="prefetch" href="{u}">\n' for u in PREFETCH if u != path)
@@ -779,9 +789,13 @@ pre.art-mont{{font-size:13.278px}}
 <div class="bd">{art}<p class="bio">{bio}</p></div></div></body></html>"""
     with tempfile.TemporaryDirectory() as td:
         open(f'{td}/og.html', 'w').write(card)
+        # rendered at 2x and averaged down: the headless shell rounds glyph advances to
+        # whole pixels, which at 1x speckles the art's edges where cells overlap
         subprocess.run([CHROME, '--no-sandbox', '--hide-scrollbars', '--window-size=1200,630',
-                        '--force-device-scale-factor=1', f'--screenshot={SITE}/og.png', f'file://{td}/og.html'],
+                        '--force-device-scale-factor=2', f'--screenshot={td}/og.png', f'file://{td}/og.html'],
                        check=True, capture_output=True)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f'{td}/og.png', '-vf',
+                        'scale=1200:630:flags=area', f'{SITE}/og.png'], check=True)
 
 # Before/after crops of the header for "How This Site Works": the plain gradient
 # clip (seams) and the shadow hack (solid), rendered at 1x and enlarged 3x with hard
