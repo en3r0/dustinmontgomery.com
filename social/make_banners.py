@@ -28,16 +28,18 @@ style = re.search(r'<style>(.*?)</style>', home, re.S).group(1)
 art_css = style[style.index('.artband'):]          # the hero art rules (shadow hack)
 
 # name: (width, height, dust font px, CSS placing the art clear of the avatar)
+# The art is sized to fill the banner's height, kept clear of where each site lays
+# the profile photo over the banner (LinkedIn: bottom-left quarter; X: bottom-left).
 BANNERS = {
-    'linkedin-banner': (1584, 396, 17, 'right:110px;top:50%;transform:translateY(-50%)'),
-    'x-header':        (1500, 500, 22, 'left:50%;top:44%;transform:translate(-50%,-50%)'),
+    'linkedin-banner': (1584, 396, 25, 'right:56px;top:50%;transform:translateY(-50%)'),
+    'x-header':        (1500, 500, 27, 'left:62%;top:46%;transform:translate(-50%,-50%)'),
 }
 
 for name, (w, h, px, place) in BANNERS.items():
     page = f"""<!doctype html><meta charset="utf-8"><style>
 html,body{{margin:0;width:{w}px;height:{h}px;overflow:hidden;background:#0a0e0a}}
 body{{background-image:radial-gradient(#132013 1.5px,transparent 1.5px);background-size:20px 20px}}
-.art-box{{position:absolute;{place};background:#101710;border:1px solid #1d291b;padding:22px 28px}}
+.art-box{{position:absolute;{place};background:#101710;border:1px solid #1d291b;padding:16px 22px}}
 {art_css}
 pre.art-dust{{font-size:{px}px}}
 pre.art-mont{{font-size:{px * 14.172 / 28.818:.3f}px;margin-top:{px * .45:.1f}px}}
