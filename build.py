@@ -358,6 +358,14 @@ wr(f'{SITE}/blog/how-this-site-works/index.html',
    article('/blog/how-this-site-works/', WORKS[0], '2026-10-08',
            rd(f'{REPO}/src/posts/how-this-site-works.html').strip(), WORKS[1], extra_css=CODE_CSS))
 
+# ---- trilium-tui (2026-10-14). Body in src/posts/; demo.webp is the repo's demo.gif
+# re-encoded with gif2webp (lossless, -min_size): same pixels, 1.1 MB instead of 1.7.
+TRILIUM = ('trilium-tui: my Trilium notes, in the terminal',
+           'A fast, offline-first terminal client for Trilium Next that syncs with your server.')
+wr(f'{SITE}/blog/trilium-tui/index.html',
+   article('/blog/trilium-tui/', TRILIUM[0], '2026-10-14',
+           rd(f'{REPO}/src/posts/trilium-tui.html').strip(), TRILIUM[1], extra_css=CODE_CSS))
+
 # A post's own files (images etc.) go in src/posts/<slug>/ and are copied next to it.
 import shutil as _shutil
 for d in sorted(os.listdir(f'{REPO}/src/posts')):
@@ -452,11 +460,13 @@ b = must_sub('</pre></div></div></div>', f'</pre></div><p class="bio p-note" ite
 b = must_sub('<li><a href="https://x.com/DustinMontgomer">', '<li><a href="https://x.com/DustinMontgomer" rel="me" class="u-url" itemprop="sameAs">', b)
 b = must_sub('<li><a href="https://www.linkedin.com/in/dustinmontgomery">', '<li><a href="https://www.linkedin.com/in/dustinmontgomery" rel="me" class="u-url" itemprop="sameAs">', b)
 b = must_sub('<li><a href="/blog/">Seedless Torrents</a>', '<li><a href="/blog/seedless-torrents/">Seedless Torrents</a>', b)
-b = must_sub('<li><a href="/blog/seedless-torrents/">Seedless Torrents</a>',
+b = must_sub('''<li><a href="/blog/seedless-torrents/">Seedless Torrents</a><span class="m">20 years of an idea,
+built with AI, and why it never worked past 8 bits</span></li>
+''',
+             f'<li><a href="/blog/trilium-tui/">{TRILIUM[0]}</a><span class="m">{TRILIUM[1]}</span></li>'
              f'<li><a href="/blog/how-this-site-works/">{WORKS[0]}</a><span class="m">{WORKS[1]}</span></li>'
-             f'<li><a href="/blog/i-made-a-thing-that-haunts-me/">{HAUNT[0]}</a><span class="m">{HAUNT[1]}</span></li>'
-             '<li><a href="/blog/seedless-torrents/">Seedless Torrents</a>', b)
-# home lists the newest three; Note Taking stays on /blog/
+             f'<li><a href="/blog/i-made-a-thing-that-haunts-me/">{HAUNT[0]}</a><span class="m">{HAUNT[1]}</span></li>\n', b)
+# home lists the newest three; Seedless Torrents and Note Taking stay on /blog/
 b = must_sub('''<li><a href="/blog/">Note Taking Applications</a><span class="m">what I tried
 and what stuck</span></li>
 ''', '', b)
@@ -505,7 +515,8 @@ b = fix_common(desk_of(f'{SRC}/writing/index.html'))
 b = re.sub(r'\n<div class="win"><div class="bar"><i></i><i></i><i></i><b>note</b>.*', '', b, flags=re.S)
 assert 'todo' not in b
 b = must_sub('<div class="bd"><ul><li><a href="/blog/seedless-torrents/">',
-             f'<div class="bd"><ul><li><a href="/blog/how-this-site-works/">{WORKS[0]}</a><span class="m">{WORKS[1]}</span></li>'
+             f'<div class="bd"><ul><li><a href="/blog/trilium-tui/">{TRILIUM[0]}</a><span class="m">{TRILIUM[1]}</span></li>'
+             f'<li><a href="/blog/how-this-site-works/">{WORKS[0]}</a><span class="m">{WORKS[1]}</span></li>'
              f'<li><a href="/blog/i-made-a-thing-that-haunts-me/">{HAUNT[0]}</a><span class="m">{HAUNT[1]}</span></li>'
              '<li><a href="/blog/seedless-torrents/">', b)
 b = re.sub(r'<li><a href="/blog/', '<li class="h-entry"><a class="u-url p-name" href="/blog/', b)
@@ -590,7 +601,14 @@ wr(f'{SITE}/feed.xml', f"""<?xml version="1.0" encoding="UTF-8"?>
 <atom:link href="{BASE}/feed.xml" rel="self" type="application/rss+xml"/>
 <description>Notes on what I built and what broke.</description>
 <language>en</language>
-<lastBuildDate>Thu, 08 Oct 2026 12:00:00 +0000</lastBuildDate>
+<lastBuildDate>Wed, 14 Oct 2026 12:00:00 +0000</lastBuildDate>
+<item>
+  <title>trilium-tui: my Trilium notes, in the terminal</title>
+  <link>{BASE}/blog/trilium-tui/</link>
+  <guid>{BASE}/blog/trilium-tui/</guid>
+  <pubDate>Wed, 14 Oct 2026 12:00:00 +0000</pubDate>
+  <description>A fast, offline-first terminal client for Trilium Next that syncs with your server.</description>
+</item>
 <item>
   <title>How This Site Works</title>
   <link>{BASE}/blog/how-this-site-works/</link>
@@ -626,7 +644,7 @@ wr(f'{SITE}/feed.xml', f"""<?xml version="1.0" encoding="UTF-8"?>
 
 import datetime
 BUILD_DATE = datetime.date.today().isoformat()
-urls = ['/', '/blog/', '/blog/how-this-site-works/', '/blog/i-made-a-thing-that-haunts-me/', '/blog/seedless-torrents/', '/blog/note-taking-applications/',
+urls = ['/', '/blog/', '/blog/trilium-tui/', '/blog/how-this-site-works/', '/blog/i-made-a-thing-that-haunts-me/', '/blog/seedless-torrents/', '/blog/note-taking-applications/',
         '/seo-consulting/'] + [f'/seo-consulting/{n}/' for _, n in DTC]
 for u in urls:
     assert os.path.exists(f'{SITE}{u}index.html'), u

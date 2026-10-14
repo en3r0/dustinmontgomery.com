@@ -1,0 +1,23 @@
+<img src="demo.webp" alt="trilium-tui demo: browsing the note tree, editing a note in place, searching, and the command palette" width="1000" height="563">
+<p>I keep all my writing and notes in <a href="https://github.com/TriliumNext/Trilium">Trilium Next</a>, and since moving to Omarchy, I like to spend most of my time in a terminal. After sometime I thought why not fix it myself, so after a bunch of prompting I had built trilium-tui.</p>
+<h2>What it is</h2>
+<p>A terminal app, written in Rust, that keeps a local copy of your notes and syncs with your Trilium server in the background, using the same protocol as the official desktop app. It feels instant, and it of course keeps working even when the server is unreachable.</p>
+<h2>What I like about it</h2>
+<ul>
+<li><strong>Edit like a document.</strong> Press <code>e</code> and edit formatted text in place: bold, lists, tables, note links, even pictures inline. Only the paragraph you touch is rewritten, so the rest of the note is saved byte for byte.</li>
+<li><strong>Trilium's own search.</strong> <code>#label</code>, <code>~relation.title</code>, <code>orderBy</code>: the full query syntax.</li>
+<li><strong>Safe with real data.</strong> It was checked against a real Trilium v0.106.0 server, makes a daily local backup, and keeps unsaved text if a save ever fails.</li>
+<li><strong>Scriptable.</strong> A companion <code>trilium-cli</code> searches, reads, appends and exports from a shell, with <code>--json</code> output.</li>
+<li><strong>Bring your notes along.</strong> Import from Obsidian, Notion, Anytype, Google Keep and Evernote.</li>
+</ul>
+<h2>Try it</h2>
+<p>Grab a prebuilt Linux binary from the <a href="https://github.com/en3r0/trilium-tui/releases/tag/v0.1.0">releases page</a> and install it (into <code>~/.local/bin</code>, no root needed):</p>
+<pre><code>tar -xzf trilium-tui-*-linux.tar.gz
+cd trilium-tui-*-linux
+./install.sh</code></pre>
+<p>Then start an empty local notebook, no server needed:</p>
+<pre><code>trilium-tui --new</code></pre>
+<p>or point it at your server:</p>
+<pre><code>TRILIUM_PASSWORD='...' trilium-cli sync http://your-server:8080
+trilium-tui</code></pre>
+<p>It is version 0.1.0, Linux only for now, and open source under AGPL-3.0. It writes to your server, so take a Trilium backup before your first sync. Bug reports and ideas are welcome on <a href="https://github.com/en3r0/trilium-tui">GitHub</a>.</p>
