@@ -1,0 +1,69 @@
+https://dustinmontgomery.com/blog/trilium-tui/
+
+trilium-tui: my Trilium notes, in the terminal
+==============================================
+
+Dustin Montgomery · October 14, 2026
+
+[image: trilium-tui demo: browsing the note tree, editing a note in
+place, searching, and the command palette]
+
+I keep all my writing and notes in Trilium Next [1], and since moving to
+Omarchy, I like to spend most of my time in a terminal. After sometime I
+thought why not fix it myself, so after a bunch of prompting I had built
+trilium-tui.
+
+## What it is
+
+A terminal app, written in Rust, that keeps a local copy of your notes
+and syncs with your Trilium server in the background, using the same
+protocol as the official desktop app. It feels instant, and it of course
+keeps working even when the server is unreachable.
+
+## What I like about it
+
+- Edit like a document. Press `e` and edit formatted text in place:
+  bold, lists, tables, note links, even pictures inline. Only the
+  paragraph you touch is rewritten, so the rest of the note is saved
+  byte for byte.
+
+- Trilium's own search. `#label`, `~relation.title`, `orderBy`: the full
+  query syntax.
+
+- Safe with real data. It was checked against a real Trilium v0.106.0
+  server, makes a daily local backup, and keeps unsaved text if a save
+  ever fails.
+
+- Scriptable. A companion `trilium-cli` searches, reads, appends and
+  exports from a shell, with `--json` output.
+
+- Bring your notes along. Import from Obsidian, Notion, Anytype, Google
+  Keep and Evernote.
+
+## Try it
+
+Grab a prebuilt Linux binary from the releases page [2] and install it
+(into `~/.local/bin`, no root needed):
+
+    tar -xzf trilium-tui-*-linux.tar.gz
+    cd trilium-tui-*-linux
+    ./install.sh
+
+Then start an empty local notebook, no server needed:
+
+    trilium-tui --new
+
+or point it at your server:
+
+    TRILIUM_PASSWORD='...' trilium-cli sync http://your-server:8080
+    trilium-tui
+
+It is version 0.1.0, Linux only for now, and open source under AGPL-3.0.
+It writes to your server, so take a Trilium backup before your first
+sync. Bug reports and ideas are welcome on GitHub [3].
+
+Links
+-----
+[1] https://github.com/TriliumNext/Trilium
+[2] https://github.com/en3r0/trilium-tui/releases/tag/v0.1.0
+[3] https://github.com/en3r0/trilium-tui

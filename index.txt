@@ -19,16 +19,16 @@ Still excited about technology.
 
 Notes on what I built and what broke.
 
-- How This Site Works [1]
+- trilium-tui: my Trilium notes, in the terminal [1]
+  A fast, offline-first terminal client for Trilium Next that syncs with
+  your server.
+
+- How This Site Works [2]
   The ASCII art shadow hack, pages you can curl, and running it all for
   free.
 
-- I made a thing that haunts me. [2]
+- I made a thing that haunts me. [3]
   Death comes for us all eventually.
-
-- Seedless Torrents [3]
-  20 years of an idea, built with AI, and why it never worked past 8
-  bits
 
 All writing → [4]
 
@@ -84,9 +84,9 @@ Other places I am. Get on the newsletter for infrequent updates.
 
 Links
 -----
-[1] https://dustinmontgomery.com/blog/how-this-site-works/
-[2] https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
-[3] https://dustinmontgomery.com/blog/seedless-torrents/
+[1] https://dustinmontgomery.com/blog/trilium-tui/
+[2] https://dustinmontgomery.com/blog/how-this-site-works/
+[3] https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
 [4] https://dustinmontgomery.com/blog/
 [5] https://cliphuman.com/
 [6] https://numberyour.day

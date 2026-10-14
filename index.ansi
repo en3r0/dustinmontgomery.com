@@ -19,16 +19,16 @@ Still excited about technology.
 
 Notes on what I built and what broke.
 
-- How This Site Works [38;2;126;143;120m[1][0m
+- trilium-tui: my Trilium notes, in the terminal [38;2;126;143;120m[1][0m
+  A fast, offline-first terminal client for Trilium Next that syncs with
+  your server.
+
+- How This Site Works [38;2;126;143;120m[2][0m
   The ASCII art shadow hack, pages you can curl, and running it all for
   free.
 
-- I made a thing that haunts me. [38;2;126;143;120m[2][0m
+- I made a thing that haunts me. [38;2;126;143;120m[3][0m
   Death comes for us all eventually.
-
-- Seedless Torrents [38;2;126;143;120m[3][0m
-  20 years of an idea, built with AI, and why it never worked past 8
-  bits
 
 All writing → [38;2;126;143;120m[4][0m
 
@@ -84,9 +84,9 @@ Other places I am. Get on the newsletter for infrequent updates.
 
 [38;2;126;143;120mLinks[0m
 [38;2;126;143;120m-----[0m
-[38;2;126;143;120m[1][0m https://dustinmontgomery.com/blog/how-this-site-works/
-[38;2;126;143;120m[2][0m https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
-[38;2;126;143;120m[3][0m https://dustinmontgomery.com/blog/seedless-torrents/
+[38;2;126;143;120m[1][0m https://dustinmontgomery.com/blog/trilium-tui/
+[38;2;126;143;120m[2][0m https://dustinmontgomery.com/blog/how-this-site-works/
+[38;2;126;143;120m[3][0m https://dustinmontgomery.com/blog/i-made-a-thing-that-haunts-me/
 [38;2;126;143;120m[4][0m https://dustinmontgomery.com/blog/
 [38;2;126;143;120m[5][0m https://cliphuman.com/
 [38;2;126;143;120m[6][0m https://numberyour.day
